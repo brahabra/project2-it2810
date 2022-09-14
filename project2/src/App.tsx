@@ -20,12 +20,21 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        {data.map((item: { id: string, title: string, committer_name: string }) => 
+            <Typography key={item.id}>
+              Title: {item.title}
+              <br/>
+              Committer: {item.committer_name}
+              <br/>
+             </Typography>  
+        )}
         <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
+
           Learn React
         </a>
       </header>
