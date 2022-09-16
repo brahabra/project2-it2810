@@ -6,6 +6,7 @@ type Commit = {
   id: string;
   title: string;
   committer_name: string;
+  web_url: string;
 };
 
 interface CommitProps {
@@ -17,8 +18,8 @@ export const Commit = (props: CommitProps) => {
   return (
     <div className="commit">
       <Typography>
-        <div className="title">Title: {commit.title}</div>
-        <div className="comitter">Committer: {commit.committer_name} </div>
+        <div className="title"><a href={commit.web_url}>{commit.title}</a></div>
+        <div className="comitter">@{commit.committer_name} </div>
       </Typography>
     </div>
   );

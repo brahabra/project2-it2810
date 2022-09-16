@@ -19,7 +19,7 @@ export default function Home() {
     <div>
       <div className="commits">
         {commits.map(
-          (item: { id: string; title: string; committer_name: string }) => (
+          (item: { id: string; title: string; committer_name: string; web_url: string;}) => (
             <Commit commit={item} />
           )
         )}
