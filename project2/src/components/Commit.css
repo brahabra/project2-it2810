@@ -1,0 +1,11 @@
+.commit {
+    width: 200px;
+    background-color: beige;
+    border-style: solid;
+    padding: 20px;
+    margin: auto;
+}
+
+.commit .title {
+    font: bold;
+}
