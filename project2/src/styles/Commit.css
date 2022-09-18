@@ -1,0 +1,19 @@
+.commit {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 25px;
+    border: 2px solid black;
+    width: 200px;
+    margin: auto;
+}
+
+.commit .title {
+    font-size: 20px;
+}
+
+
+.commit .created {
+    font-size: 15px;
+    padding-top: 15px;
+    text-align: right;
+}

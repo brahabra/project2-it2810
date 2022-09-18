@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { getData }from './api/fetch'
-import { Typography }from '@mui/material'
 import Home from "./pages/Home";
+import Commits from "./pages/CommitsPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-
   return (
     <div className="App">
-      <Home/>
+      <Commits/>
+     {/*  <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/commits" element={<Commits />} />
+        </Routes>
+      </Router> */}
     </div>
   );
 }
