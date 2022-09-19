@@ -36,7 +36,6 @@ export default function Commits() {
       setLoading(false);
     });
   }, []);
-        {/*<Commit key={commit.id} commit={commit} /> */}
  
   return (
     <div>
