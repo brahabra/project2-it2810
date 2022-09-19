@@ -25,14 +25,11 @@ export default function Commits() {
 
   useEffect(() => {
     getData("17381", "glpat-CRs4epaLyzKdvdpGzE_3", 'main').then((res) => {
-      console.log('hello'); // JSON data parsed by `data.json()` call
-      console.log(res)
       for (let i = 0; i < res.length; i++) {
-
-        commits.push(res[i]);
+        if(!commits.find(el => el.id === res[i].id)) {
+          commits.push(res[i]);
+        } 
       }
-
-      console.log(commits)
       setLoading(false);
     });
   }, []);
@@ -44,11 +41,12 @@ export default function Commits() {
         <h2>Commits</h2>
       </div>
       <div className="commits">
-      {commits.length ? commits.map(
+      {isLoading ? <p>no data</p> : 
+      commits.map(
       (commit) => (
 
         <Commit key={commit.id} commit={commit} />
-      )): <p>no data</p>}
+      ))}
       </div>
     </div>
   );

@@ -21,11 +21,9 @@ type Commit = {
 export const Commit = (props: {key:string, commit:Commit}) => {
   return (
     <div className="commit">
-      <Typography>
         <div className="title"><a href={props.commit.web_url}>{props.commit.title}</a></div>
         <div className="comitter">@{props.commit.committer_name} </div>
         <div className="created">{props.commit.created_at.substring(0, 10)}</div>
-      </Typography>
     </div>
   );
 };
