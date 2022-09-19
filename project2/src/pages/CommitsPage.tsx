@@ -40,11 +40,10 @@ export default function Commits() {
       <div className="header">
         <h2>Commits</h2>
       </div>
-      <div className="commits">
+      <div className="commits">  
       {isLoading ? <p>no data</p> : 
       commits.map(
       (commit) => (
-
         <Commit key={commit.id} commit={commit} />
       ))}
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Typography } from "@mui/material";
+import { Container, Paper, Typography } from "@mui/material";
 import "../styles/Commit.css";
 
 
@@ -20,10 +20,23 @@ type Commit = {
 
 export const Commit = (props: {key:string, commit:Commit}) => {
   return (
-    <div className="commit">
-        <div className="title"><a href={props.commit.web_url}>{props.commit.title}</a></div>
-        <div className="comitter">@{props.commit.committer_name} </div>
-        <div className="created">{props.commit.created_at.substring(0, 10)}</div>
-    </div>
+    <Container>
+      <Paper sx={{
+            padding: '20px',
+            borderRadius: '25px',
+            width: 'auto',
+            margin: '20px',
+      }}>
+        <Typography>
+        Title:
+         <a href={props.commit.web_url}>
+         {props.commit.title}</a>
+        </Typography>
+        <Typography> Author: {props.commit.committer_name}</Typography>
+        <Typography> Committer Email: {props.commit.committer_email}</Typography>
+        <Typography>Date Created: {props.commit.created_at.substring(0, 10)}</Typography>
+      </Paper>
+    </Container>
+    
   );
 };
