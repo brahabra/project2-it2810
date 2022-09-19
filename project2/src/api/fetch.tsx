@@ -7,8 +7,8 @@
 
 //export async function getData(projectID = '', branch = '', token = '') {
 //   const response = await fetch('https://gitlab.stud.idi.ntnu.no/api/v4/projects/' + projectID + '/repository/branches/'+ branch, {
-  export async function getData(projectID = '', token = '') {
-    const response = await fetch('https://gitlab.stud.idi.ntnu.no/api/v4/projects/' + projectID + '/repository/commits/', {
+  export async function getData(projectID = '', token = '', branch = '') {
+    const response = await fetch('https://gitlab.stud.idi.ntnu.no/api/v4/projects/' + projectID + '/repository/commits' + '?refName=' + branch, {
   
 method: 'GET', 
       mode: 'cors', 

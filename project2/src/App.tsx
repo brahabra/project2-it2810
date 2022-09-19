@@ -1,17 +1,17 @@
 import Home from "./pages/Home";
-import Commits from "./pages/CommitsPage";
+import CommitsPage from "./pages/CommitsPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+
   return (
     <div className="App">
-      <Commits/>
-     {/*  <Router>
+      <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/commits" element={<Commits />} />
+          <Route path="/commits" element={<CommitsPage />} />
         </Routes>
-      </Router> */}
+      </Router>
     </div>
   );
 }
