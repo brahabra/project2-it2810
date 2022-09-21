@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/CommitsPage.css";
 import { Commit } from "../components/Commit";
 import { getData } from "../api/fetch";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navigationbar";
 
 export default function Commits() {
   const [commits, setCommits] = useState<Commit[]>([]);
@@ -36,7 +36,6 @@ export default function Commits() {
  
   return (
     <div>
-      <Navbar />
       <div className="header">
         <h2>Commits</h2>
       </div>
