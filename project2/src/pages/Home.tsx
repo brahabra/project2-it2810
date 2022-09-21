@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/Home.css";
 import { Commit } from "../components/Commit";
 import { getData } from "../api/fetch";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navigationbar";
 
 export default function Home() {
   
