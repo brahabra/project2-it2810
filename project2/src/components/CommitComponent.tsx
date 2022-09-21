@@ -1,24 +1,9 @@
 import React, { useState } from "react";
-import { Container, Paper, Typography } from "@mui/material";
+import { Container, Paper, Typography, IconButton } from "@mui/material";
 import "../styles/Commit.css";
+import { Commit } from "../types"
 
-
-type Commit = { 
-  id: string,
-  short_id: string,
-  created_at: string,
-  author_email: string, 
-  author_name: string,
-  authored_date: string, 
-  committed_date: string,
-  committer_email: string, 
-  committer_name: string,
-  message: string,
-  title: string,
-  web_url: string,
-}
-
-export const Commit = (props: {key:string, commit:Commit}) => {
+export const CommitComponent = (props: {key:string, commit:Commit}) => {
   return (
     <Container>
       <Paper sx={{
@@ -26,10 +11,11 @@ export const Commit = (props: {key:string, commit:Commit}) => {
             borderRadius: '25px',
             width: 'auto',
             margin: '20px',
-      }}>
+          }}
+      >
         <Typography>
-        Title:
-         <a href={props.commit.web_url}>
+        Title: 
+         <a href={props.commit.web_url} > 
          {props.commit.title}</a>
         </Typography>
         <Typography> Author: {props.commit.committer_name}</Typography>
@@ -37,6 +23,5 @@ export const Commit = (props: {key:string, commit:Commit}) => {
         <Typography>Date Created: {props.commit.created_at.substring(0, 10)}</Typography>
       </Paper>
     </Container>
-    
   );
 };

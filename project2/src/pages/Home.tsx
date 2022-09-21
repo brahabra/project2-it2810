@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Home.css";
-import { Commit } from "../components/Commit";
+import { CommitComponent } from "../components/CommitComponent";
 import { getData } from "../api/fetch";
 import Navbar from "../components/Navigationbar";
 
