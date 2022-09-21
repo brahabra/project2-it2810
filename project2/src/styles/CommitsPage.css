@@ -1,0 +1,11 @@
+.header {
+    margin: auto;
+    text-align: center;
+}
+
+.commits {
+    border: 2px solid black;
+    width: 50%;
+    margin: auto;
+    background-color: rgb(135, 163, 126);
+}
