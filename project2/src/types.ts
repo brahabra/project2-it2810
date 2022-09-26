@@ -30,8 +30,8 @@ type Milestone = {
 
 type Assignee = {
     id: string
-    usernameid: string
-    nameid: string
+    username: string
+    name: string
     state: string
     avatar_url: string
     web_url: string
@@ -51,7 +51,7 @@ export type Issue = {
     labels: Array<String>
     milestone: Milestone
     assignees: Assignee[]	
-    author: Assignee[]	
+    author: Assignee	
     assignee: Assignee
     due_date: string
     confidential: boolean

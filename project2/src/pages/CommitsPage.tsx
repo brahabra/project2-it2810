@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/CommitsPage.css";
 import { CommitComponent } from "../components/CommitComponent";
 import DateRangePicker from "../components/DateRangePicker";
