@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/CommitsPage.css";
 import { CommitComponent } from "../components/CommitComponent";
+import { Graph } from "../components/Graph";
 import DateRangePicker from "../components/DateRangePicker";
 import { getData } from "../api/fetch";
 import { Commit } from "../types";
@@ -103,15 +104,15 @@ export default function CommitsPage() {
 
   const ComponentList = () => {
     return (
-      <Box sx={{ width: "100%", margin: "auto", backgroundColor: "#DAF7A6" }}>
-        {filterName
-          ? filterList.map((commit) => (
-              <CommitComponent key={commit.id} commit={commit} />
-            ))
-          : commits.map((commit) => (
-              <CommitComponent key={commit.id} commit={commit} />
-            ))}
-      </Box>
+        <Box sx={{ width: "100%", margin: "auto", backgroundColor: "#DAF7A6" }}>
+          {filterName
+            ? filterList.map((commit) => (
+                <CommitComponent key={commit.id} commit={commit} />
+              ))
+            : commits.map((commit) => (
+                <CommitComponent key={commit.id} commit={commit} />
+          ))}
+        </Box>
     );
   };
 
@@ -140,6 +141,7 @@ export default function CommitsPage() {
         <h2>Commits</h2>
       </div>
       <div className ="datePicker">
+      {isLoading ? null : <Graph commits={commits} />}
       <DatePicker />
       </div>
       <div className="commits">
