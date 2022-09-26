@@ -4,8 +4,11 @@ import TextField from "@mui/material/TextField";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { Commit } from "../types";
+
 
 interface Props{
+    filterList: Commit[]
     startValue: Dayjs | null,
     setStartValue: (value: Dayjs | null) => void,
     endValue: Dayjs | null,
@@ -13,10 +16,23 @@ interface Props{
   }
 
 
-export default function DateRangePicker(
-    props: Props
-  ) {
- 
+export default function DateRangePicker(props: Props) {
+  if (props.filterList.length !== 0) {
+    for (let i = 0; i < props.filterList.length; i++) {
+      if (
+        (props.startValue?.isBefore(props.filterList[i].created_at) || props.startValue?.isSame(props.filterList[i].created_at))
+        && (props.endValue?.isAfter(props.filterList[i].created_at) || props.endValue?.isSame(props.filterList[i].created_at))
+      ) {
+        console.log("Treff på " + props.filterList[i]);
+      }
+      else{
+        props.filterList.splice(i);
+      }
+    }
+  }
+  else {
+    console.log("filterlist tom")
+  }
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
