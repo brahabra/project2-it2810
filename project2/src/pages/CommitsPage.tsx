@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/CommitsPage.css";
 import { CommitComponent } from "../components/CommitComponent";
 import DateRangePicker from "../components/DateRangePicker";
-import { getData } from "../api/fetch";
+import { getCommits } from "../api/fetch";
 import { Commit } from "../types";
 import {
   Box,
@@ -48,7 +48,7 @@ export default function CommitsPage() {
     var day = dayjs(endDay)
     setEndValue(day);
 
-    getData("17381", "glpat-CRs4epaLyzKdvdpGzE_3", "main").then((res) => {
+    getCommits("17381", "glpat-CRs4epaLyzKdvdpGzE_3", "main").then((res) => {
       for (let i = 0; i < res.length; i++) {
         if (!commits.find((el) => el.id === res[i].id)) {
           commits.push(res[i]);
