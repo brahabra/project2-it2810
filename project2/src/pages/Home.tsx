@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Home.css";
-import { Commit } from "../components/Commit";
-import { getBranches, getData } from "../api/fetch";
-import Navbar from "../components/Navigationbar";
-import { Input, Button, Select, MenuItem, Typography, InputLabel, FormControl, SelectChangeEvent} from "@mui/material";
+import { getBranches} from "../api/fetch";
+import { Input, Button, Select, MenuItem, InputLabel, FormControl, SelectChangeEvent} from "@mui/material";
 
 export default function Home() {
   const [projectID, setProjectID] = useState<number>(17381);
@@ -14,11 +12,11 @@ export default function Home() {
   const [selectedBranch, setBranchName] = useState<string>("");
   const [branches, setBranches] = useState<string[]>([]);
 
-  const onChangeProjectID = (event: any) => {
-    setProjectID(event.target.value);
+  const onChangeProjectID = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setProjectID(parseInt(event.currentTarget.value));
     console.log(projectID)
   };
-  const onChangeProjectToken = (event: any) => {
+  const onChangeProjectToken = (event: React.ChangeEvent<HTMLInputElement>) => {
     setProjectToken(event.target.value);
     console.log(projectToken)
   };
@@ -45,7 +43,6 @@ export default function Home() {
     const newBranch = event.target.value;
     if (newBranch != null) {
         setBranchName(event.target.value as string);
-        
     }
   }
 
@@ -75,7 +72,7 @@ export default function Home() {
       {toggle && (
       <FormControl style={{width: 250}}>
         <InputLabel>Select branch</InputLabel>
-        <Select label="Name" onChange={handleChangeBranch}>
+        <Select defaultValue={""} onChange={handleChangeBranch}>
           {branches.map((branch: string) => (
             <MenuItem key={branch} value={branch}>
               {branch}
