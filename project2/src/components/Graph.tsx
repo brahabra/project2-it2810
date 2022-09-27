@@ -4,8 +4,13 @@ import "../styles/Commit.css";
 import { Commit } from "../types"
 import { PieChart } from 'react-minimal-pie-chart';
 
-function getRandColor() {
-    return "#" + Math.floor(Math.random()*16777215).toString(16);
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+function getRandomColor() {
+  let min:number = 4000;
+  let max:number = 1600000;
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return "#" + Math.floor(Math.random() * (max - min) + min).toString(16);
 }
 
 type Member = {
@@ -20,7 +25,7 @@ function calcMemberDistrobution(commits: Commit[]) {
   for (let i = 0; i < commits.length; i++) {
     member = commits[i].committer_name;
     if (typeof members.get(member) === "undefined") {
-      members.set(member, {name: member, commits: 0, color: getRandColor()}) 
+      members.set(member, {name: member, commits: 0, color: getRandomColor()}) 
     } 
     members.get(member)!.commits++;  
   }
@@ -44,24 +49,33 @@ export const Graph = (props: Props) => {
       member = membersDistrobution[i];
       chartData.push( { title: member.name, value: member.commits, color: member.color } );
     }
-    console.log(chartData);
-
   return (
     <Container>
       <Paper sx={{
-            padding: '100px',
+            padding: '20px',
             borderRadius: '20px',
             width: 'auto',
             margin: '20px',
+            textAlign: 'left'
           }}
       >
         <>
         <PieChart
             data={chartData}
         />
-        {props.commits.map((commit: Commit)=>{
-            <Typography> Member: {commit.committer_name}</Typography>
-        })}
+          {membersDistrobution.map(((member: Member)=>(
+            <Typography key={member.name} sx={{
+                                          display: 'flex',
+                                          flexDirection: 'row',
+            }}>
+              <div>
+                <svg width="15" height="15">
+                  <rect width="10" height="10" rx="2" fill={member.color}/>
+                </svg>
+              </div>
+               <div>{member.name}</div>
+               </Typography>
+          )))}
         </>
       </Paper>
     </Container>
