@@ -4,13 +4,15 @@ import "../styles/Commit.css";
 import { Commit } from "../types"
 import { PieChart } from 'react-minimal-pie-chart';
 
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-function getRandomColor() {
-  let min:number = 4000;
-  let max:number = 1600000;
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return "#" + Math.floor(Math.random() * (max - min) + min).toString(16);
+function getColor(memberNr: number) {
+  const startRange:number = 65280;
+  const endRange:number = 16777216;
+  const intervall:number = 5000;
+  let color:string = "#" + ((startRange+intervall*memberNr)%endRange).toString(16);
+  while (color.length < 7) {
+    color = color + "0"
+  }
+  return color;
 }
 
 type Member = {
@@ -22,10 +24,12 @@ type Member = {
 function calcMemberDistrobution(commits: Commit[]) {
   let members: Map<string, Member> = new Map();
   let member: string;
+  let memberNr:number = 0;
   for (let i = 0; i < commits.length; i++) {
     member = commits[i].committer_name;
     if (typeof members.get(member) === "undefined") {
-      members.set(member, {name: member, commits: 0, color: getRandomColor()}) 
+      members.set(member, {name: member, commits: 0, color: getColor(memberNr)})
+      memberNr++; 
     } 
     members.get(member)!.commits++;  
   }
