@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react';
 import "../styles/Home.css";
 import { Input, Button, Select, MenuItem, InputLabel, FormControl, SelectChangeEvent} from "@mui/material";
-import { getBranches } from "../api/fetch";
+import { CommitComponent } from "../components/CommitComponent";
+import { getData, getBranches } from "../api/fetch";
+import Navbar from "../components/Navigationbar";
+import { WebStorageClass } from "../WebStorageClass";
 
 export default function Home() {
-  const [projectID, setProjectID] = useState<number>(17381);
-  const [projectToken, setProjectToken] = useState<string>("glpat-CRs4epaLyzKdvdpGzE_3");
+  const storage = new WebStorageClass();
+  const [projectID, setProjectID] = useState<string>(selectProjectID());
+  const [projectToken, setProjectToken] = useState<string>(selectProjectToken());
   // toggle branch selector
   const [toggle, setToggle] = useState(false);
   const [isLoading, setLoading] = useState(true);
@@ -13,17 +17,18 @@ export default function Home() {
   const [branches, setBranches] = useState<string[]>([]);
 
   const onChangeProjectID = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setProjectID(parseInt(event.currentTarget.value));
+    setProjectID(event.target.value);
     console.log(projectID)
   };
   const onChangeProjectToken = (event: React.ChangeEvent<HTMLInputElement>) => {
     setProjectToken(event.target.value);
-    console.log(projectToken)
   };
   
   const onSubmit = () => {
-    if (projectID != null && projectToken != "") {
+    if (projectID !== null && projectToken !== "") {
       setToggle(!toggle)
+      storage.setPropValue("projectID", projectID);
+      storage.setPropValue("projectToken", projectToken);
     }
   };
 
@@ -46,6 +51,16 @@ export default function Home() {
     }
   }
 
+  function selectProjectID() {
+    const data:string | null = storage.getPropValue("projectID");
+    return (data == null) ? "17381" : data;
+  }
+
+  function selectProjectToken() {
+    const data:string | null = storage.getPropValue("projectToken");
+    return (data == null) ? "glpat-CRs4epaLyzKdvdpGzE_3" : data;
+  }
+
   return (
     <div className="container">
       <br />
@@ -54,7 +69,7 @@ export default function Home() {
         type="number"
         placeholder="ProjectID"
         onChange={onChangeProjectID}
-        value={projectID}
+        value={parseInt(projectID)}
       />
       <br/>
       <br/>
