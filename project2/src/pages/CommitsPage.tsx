@@ -72,6 +72,7 @@ export default function CommitsPage() {
       <div className="header">
         <h2>Commits</h2>
       </div>
+      <Graph commits={commits}/>
       <div className="dateRange">
         <DateRangePicker
           startValue={startValue}
