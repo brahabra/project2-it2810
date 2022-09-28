@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../styles/CommitsPage.css";
 import { CommitComponent } from "../components/CommitComponent";
 import DateRangePicker from "../components/DateRangePicker";
-import { getData } from "../api/fetch";
+import { getCommits } from "../api/fetch";
 import { Commit } from "../types";
 import { Box } from "@mui/material";
 import { Dayjs } from "dayjs";
