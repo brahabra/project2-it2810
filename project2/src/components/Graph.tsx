@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Paper, Typography, IconButton } from "@mui/material";
+import { Container, Paper, Typography, Box } from "@mui/material";
 import "../styles/Commit.css";
 import { Commit } from "../types"
 import { PieChart } from 'react-minimal-pie-chart';
@@ -21,7 +21,7 @@ type Member = {
   color: string;
 };
 
-function calcMemberDistrobution(commits: Commit[]) {
+function calcMemberDistribution(commits: Commit[]) {
   let members: Map<string, Member> = new Map();
   let member: string;
   let memberNr:number = 0;
@@ -45,14 +45,15 @@ interface Props {
 }
 
 export const Graph = (props: Props) => {
-    const membersDistrobution = calcMemberDistrobution(props.commits);
-    const chartData: {title: string, value:number, color: string}[] = [];
-    let member: Member;
+  console.log("hei")
+  const membersDistribution = calcMemberDistribution(props.commits);
+  const chartData: {title: string, value:number, color: string}[] = [];
+  let member: Member;
 
-    for (let i = 0; i < membersDistrobution.length; i++) {
-      member = membersDistrobution[i];
-      chartData.push( { title: member.name, value: member.commits, color: member.color } );
-    }
+  for (let i = 0; i < membersDistribution.length; i++) {
+    member = membersDistribution[i];
+    chartData.push( { title: member.name, value: member.commits, color: member.color } );
+  }
   return (
     <Container>
       <Paper sx={{
@@ -67,8 +68,8 @@ export const Graph = (props: Props) => {
         <PieChart
             data={chartData}
         />
-          {membersDistrobution.map(((member: Member)=>(
-            <Typography key={member.name} sx={{
+          {membersDistribution.map(((member: Member)=>(
+            <Box key={member.name} sx={{
                                           display: 'flex',
                                           flexDirection: 'row',
             }}>
@@ -78,7 +79,7 @@ export const Graph = (props: Props) => {
                 </svg>
               </div>
                <div>{member.name}</div>
-               </Typography>
+               </Box>
           )))}
         </>
       </Paper>
