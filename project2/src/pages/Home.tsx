@@ -1,8 +1,7 @@
+import { useState, useEffect } from 'react';
 import "../styles/Home.css";
 import { Input, Button, Select, MenuItem, InputLabel, FormControl, SelectChangeEvent} from "@mui/material";
-import { CommitComponent } from "../components/CommitComponent";
-import { getData, getBranches } from "../api/fetch";
-import Navbar from "../components/Navigationbar";
+import { getBranches } from "../api/fetch";
 
 export default function Home() {
   const [projectID, setProjectID] = useState<number>(17381);
