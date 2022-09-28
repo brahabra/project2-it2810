@@ -11,11 +11,10 @@ export default function Navigationbar() {
                 <Navbar.Brand href='/'>
                     Logo
                 </Navbar.Brand>
-                <Nav >
-
+                <Nav>
                     <Nav.Link  href='/commits'>Commits</Nav.Link>
+                    <Nav.Link href='/issues'>Issues</Nav.Link>
                 </Nav>
-                
             </Navbar>
         </>
     )
