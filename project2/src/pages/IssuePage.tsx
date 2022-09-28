@@ -8,6 +8,7 @@ import  IssueNameComponent from '../components/IssueNameComponent'
 import DateRangePicker from '../components/DateRangePicker';
 import { Dayjs } from "dayjs";
 import SelectStatusIssueComponent from '../components/SelectStatusIssueComponent';
+import '../styles/IssuePage.css';
 
 
 export default function IssuePage() {
