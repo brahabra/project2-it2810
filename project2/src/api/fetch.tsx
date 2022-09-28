@@ -14,7 +14,7 @@ export async function getCommits(projectID = '', token = '', branch = '') {
         'PRIVATE-TOKEN': token,
         'Content-Type': 'application/json'
       },
-      redirect: 'follow', 
+      redirect: 'follow',
     });
     return response.json(); // parses JSON response into native JavaScript objects
 };
@@ -33,4 +33,20 @@ export async function getIssues(projectID = '', token = '') {
     redirect: 'follow', 
   });
   return response.json(); // parses JSON response into native JavaScript objects
-};  
+};
+
+export async function getBranches(projectID = '', token = '') {
+  const response = await fetch('https://gitlab.stud.idi.ntnu.no/api/v4/projects/' + projectID + '/repository/branches/', {
+
+  method: 'GET', 
+      mode: 'cors', 
+      cache: 'default',
+      credentials: 'same-origin', 
+      headers: {
+        'PRIVATE-TOKEN': token,
+        'Content-Type': 'application/json'
+      },
+      redirect: 'follow', 
+  });
+  return response.json(); // parses JSON response into native JavaScript objects
+};

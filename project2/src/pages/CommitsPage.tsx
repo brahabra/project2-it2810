@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "../styles/CommitsPage.css";
 import { CommitComponent } from "../components/CommitComponent";
+import { Graph } from "../components/Graph";
 import DateRangePicker from "../components/DateRangePicker";
 import { getCommits } from "../api/fetch";
 import { Commit } from "../types";
