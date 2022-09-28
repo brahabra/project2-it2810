@@ -1,20 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/CommitsPage.css";
 import { CommitComponent } from "../components/CommitComponent";
 import DateRangePicker from "../components/DateRangePicker";
 import { getData } from "../api/fetch";
 import { Commit } from "../types";
-import {
-  Box,
-  Container,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-} from "@mui/material";
+import { Box } from "@mui/material";
 import { Dayjs } from "dayjs";
-import dayjs from "dayjs";
 import NameRowComponent from "../components/NameRowComponent";
 
 export default function CommitsPage() {
@@ -28,55 +19,73 @@ export default function CommitsPage() {
   const ComponentList = () => {
     return (
       <Box sx={{ width: "100%", margin: "auto", backgroundColor: "#DAF7A6" }}>
-        {filterName
-          ? filterList.map((commit) => (
-              <CommitComponent key={commit.id} commit={commit} />
-            ))
-          : commits.map((commit) => (
-              <CommitComponent key={commit.id} commit={commit} />
-            ))}
+        {filterList.map((commit) => (
+          <CommitComponent key={commit.id} commit={commit} />
+        ))}
       </Box>
     );
   };
 
-  useEffect(() => {
-    var startDay = new Date(2022, 1, 1);
-    var day = dayjs(startDay)
-    setStartValue(day);
-    
-    var endDay = new Date(2023, 1, 1);
-    var day = dayjs(endDay)
-    setEndValue(day);
+  function filterCommitList() {
+    const commitsCopy = [...commits];
+    let filteredCommits: Commit[] = commitsCopy;
+    if (filterName && filterName != "default") {
+      filteredCommits = filteredCommits.filter(
+        (commit) => commit.author_name == filterName
+      );
+    }
+    // TODO isSame bug?
+    if (startValue) {
+      filteredCommits = filteredCommits.filter(
+        (commit) =>
+          startValue.isBefore(commit.created_at) ||
+          startValue.isSame(commit.created_at, "day")
+      );
+    }
+    // TODO isSame bug?
+    if (endValue) {
+      filteredCommits = filteredCommits.filter(
+        (commit) =>
+          endValue.isAfter(commit.created_at) ||
+          endValue.isSame(commit.created_at, "day")
+      );
+    }
+    setFilterList(filteredCommits);
+  }
 
-    getData("17381", "glpat-CRs4epaLyzKdvdpGzE_3", "main").then((res) => {
-      for (let i = 0; i < res.length; i++) {
-        if (!commits.find((el) => el.id === res[i].id)) {
-          commits.push(res[i]);
-        }
+  useEffect(() => {
+    getData("17381", "glpat-CRs4epaLyzKdvdpGzE_3", "main").then(
+      (res: Commit[]) => {
+        setCommits(res);
+        setLoading(false);
       }
-      setLoading(false);
-    });
-  }, [commits]);
+    );
+  }, []);
+
+  useEffect(() => {
+    filterCommitList();
+  }, [commits, filterName, startValue, endValue]);
 
   return (
     <div>
       <div className="header">
         <h2>Commits</h2>
       </div>
-      <DateRangePicker
-        filterList={filterList}
-        startValue={startValue}
-        setStartValue={setStartValue}
-        endValue={endValue}
-        setEndValue={setEndValue}
-      />
-        {isLoading ? null : <NameRowComponent 
-      filterName={filterName}
-      commits={commits}
-      filterList={filterList}
-      setFilterList={setFilterList}
-      setName={setName}
-      />}
+      <div className="dateRange">
+        <DateRangePicker
+          startValue={startValue}
+          setStartValue={setStartValue}
+          endValue={endValue}
+          setEndValue={setEndValue}
+        />
+      </div>
+      {isLoading ? null : (
+        <NameRowComponent
+          filterName={filterName}
+          commits={commits}
+          setName={setName}
+        />
+      )}
       <div className="commits">
         {isLoading ? <p>Loading data ...</p> : <ComponentList />}
       </div>
