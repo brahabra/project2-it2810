@@ -34,7 +34,7 @@ export default function CommitsPage() {
         (commit) => commit.author_name == filterName
       );
     }
-    // TODO isSame bug?
+
     if (startValue) {
       filteredCommits = filteredCommits.filter(
         (commit) =>
@@ -42,7 +42,7 @@ export default function CommitsPage() {
           startValue.isSame(commit.created_at, "day")
       );
     }
-    // TODO isSame bug?
+
     if (endValue) {
       filteredCommits = filteredCommits.filter(
         (commit) =>
@@ -54,7 +54,7 @@ export default function CommitsPage() {
   }
 
   useEffect(() => {
-    getData("17381", "glpat-CRs4epaLyzKdvdpGzE_3", "main").then(
+    getCommits("17381", "glpat-CRs4epaLyzKdvdpGzE_3", "main").then(
       (res: Commit[]) => {
         setCommits(res);
         setLoading(false);

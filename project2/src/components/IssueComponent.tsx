@@ -24,6 +24,7 @@ export const IssueComponent = (props: {key:number, issue:Issue}) => {
         {props.issue.labels.map((label) => {
             <Typography>{label}</Typography>
         })}
+        <Typography>Status: {props.issue.state} </Typography>
         <Typography>Date Created: {props.issue.created_at.substring(0, 10)}</Typography>
         </>
       </Paper>
