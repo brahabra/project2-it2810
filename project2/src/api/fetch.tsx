@@ -3,14 +3,10 @@
 
 //Our projectID is 17381
 //Project token: glpat-CRs4epaLyzKdvdpGzE_3
-///projects/:id/repository/branches/
-
-//export async function getData(projectID = '', branch = '', token = '') {
-//   const response = await fetch('https://gitlab.stud.idi.ntnu.no/api/v4/projects/' + projectID + '/repository/branches/'+ branch, {
 export async function getData(projectID = '', token = '', branch = '') {
-  const response = await fetch('https://gitlab.stud.idi.ntnu.no/api/v4/projects/' + projectID + '/repository/commits' + '?refName=' + branch, {
-
-method: 'GET', 
+    const response = await fetch('https://gitlab.stud.idi.ntnu.no/api/v4/projects/' + projectID + '/repository/commits' + '?refName=' + branch, {
+  
+      method: 'GET', 
       mode: 'cors', 
       cache: 'default',
       credentials: 'same-origin', 
