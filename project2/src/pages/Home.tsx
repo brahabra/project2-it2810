@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import "../styles/Home.css";
 import { Input, Button, Select, MenuItem, InputLabel, FormControl, SelectChangeEvent} from "@mui/material";
 import { CommitComponent } from "../components/CommitComponent";
-import { getData, getBranches } from "../api/fetch";
+import { getBranches } from "../api/fetch";
 import Navbar from "../components/Navigationbar";
 import { WebStorageClass } from "../WebStorageClass";
+import { ProjectContext } from '../App';
 
 export default function Home() {
   const storage = new WebStorageClass();
+  const appContext = useContext(ProjectContext);
   const [projectID, setProjectID] = useState<string>(selectProjectID());
   const [projectToken, setProjectToken] = useState<string>(selectProjectToken());
   // toggle branch selector
@@ -33,6 +35,7 @@ export default function Home() {
   };
 
   useEffect(() => {
+    console.log(appContext?.projectID)
     getBranches("17381", "glpat-CRs4epaLyzKdvdpGzE_3").then((res) => {
       for (let i = 0; i < res.length; i++) {
         if(!branches.find((el => el === res[i].name))) {
