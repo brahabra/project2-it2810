@@ -12,12 +12,14 @@ import NameRowComponent from "../components/NameRowComponent";
 export default function CommitsPage() {
   const [commits, setCommits] = useState<Commit[]>([]);
   const [isLoading, setLoading] = useState(true);
+  const [isGraph, setGraph] = useState(false);
   const [filterName, setName] = useState("");
   const [filterList, setFilterList] = useState<Commit[]>([]);
   const [startValue, setStartValue] = useState<Dayjs | null>(null);
   const [endValue, setEndValue] = useState<Dayjs | null>(null);
 
   const ComponentList = () => {
+
     return (
       <Box sx={{ width: "100%", margin: "auto", backgroundColor: "#DAF7A6" }}>
         {filterList.map((commit) => (
@@ -72,7 +74,9 @@ export default function CommitsPage() {
       <div className="header">
         <h2>Commits</h2>
       </div>
-      <Graph commits={commits}/>
+      {isLoading ? null : 
+          (<Graph commits={commits} />)
+      }
       <div className="dateRange">
         <DateRangePicker
           startValue={startValue}
