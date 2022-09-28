@@ -11,38 +11,27 @@ interface Props {
 }
 
 export default function IssueNameComponent(props: Props) {
-    const [nameList] = useState<Issue[]>([]);
-    for (let i = 0; i < props.issues.length; i++) {
-    if (
-        !nameList.find((el) => el.author.name === props.issues[i].author.name)
-    ) {
-        nameList.push(props.issues[i]);
-    }
-    }
 
-    const handleChangeName = (event: SelectChangeEvent) => {
-    props.setFilterList(props.filterList.splice(0));
-    const newName = event.target.value;
-    if (newName != null) {
-        props.setName(event.target.value as string);
-        for (let i = 0; i < props.issues.length; i++) {
-        if (props.issues[i].author.name === newName) {
-            props.filterList.push(props.issues[i]);
-        }
-        }
-        props.setFilterList(props.filterList);
-    }
-    };
+    function getIssueAuthors() {
+        const authorNames = props.issues.map((issue) => issue.author.name);
+        return authorNames.filter(
+          (name, index) => authorNames.indexOf(name) === index
+        );
+      }
 
     return (
     <Box sx={{ minWidth: 120 }}>
         <FormControl fullWidth>
         <InputLabel>Name</InputLabel>
-        <Select value={props.filterName} label="Name" onChange={handleChangeName}>
-            <MenuItem value={""}>Default</MenuItem>
-            {nameList.map((issue) => (
-            <MenuItem key={issue.id} value={issue.author.name}>
-                {issue.author.name}
+        <Select 
+        value={props.filterName}
+         label="Name" onChange={(event: SelectChangeEvent, child) =>
+            props.setName(event.target.value)
+          }>
+            <MenuItem key={-1} value={"default"}>Default</MenuItem>
+            {getIssueAuthors().map((name, index) => (
+            <MenuItem key={index} value={name}>
+                {name}
             </MenuItem>
             ))}
         </Select>

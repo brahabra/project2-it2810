@@ -15,6 +15,7 @@ interface Props {
 }
 
 export default function NameRowComponent(props: Props) {
+ 
   function getCommitAuthors() {
     const authorNames = props.commits.map((commit) => commit.author_name);
     return authorNames.filter(
@@ -33,7 +34,7 @@ export default function NameRowComponent(props: Props) {
             props.setName(event.target.value)
           }
         >
-          <MenuItem key={"-1"} value={"default"}>
+          <MenuItem key={-1} value={"default"}>
             Default
           </MenuItem>
           {getCommitAuthors().map((name, index) => (
