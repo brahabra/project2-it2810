@@ -1,18 +1,8 @@
-.header {
-    margin: auto;
-    text-align: center;
-}
-
-.commits {
+.issues {
     border: 2px solid black;
     width: 80%;
     margin: auto;
     background-color: #DAF7A6;
     max-height: 75vh; 
     overflow: auto;
-}
-
-.dateRange{
-    margin:auto;
-    text-align: center;
 }
