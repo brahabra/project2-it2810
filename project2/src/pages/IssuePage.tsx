@@ -7,6 +7,7 @@ import { IssueComponent } from '../components/IssueComponent'
 import  IssueNameComponent from '../components/IssueNameComponent'
 import DateRangePicker from '../components/DateRangePicker';
 import { Dayjs } from "dayjs";
+import SelectStatusIssueComponent from '../components/SelectStatusIssueComponent';
 
 
 export default function IssuePage() {
@@ -14,6 +15,7 @@ export default function IssuePage() {
     const [filterList, setFilterList] = useState<Issue[]>([]);
     const [isLoading, setLoading] = useState(true);
     const [filterName, setName] = useState('');
+    const [filterStatus, setStatus] = useState('');
     const [startValue, setStartValue] = useState<Dayjs | null>(null);
     const [endValue, setEndValue] = useState<Dayjs | null>(null);
 
@@ -31,10 +33,17 @@ export default function IssuePage() {
   function filterIssueList() {
     const issuesCopy = [...issues];
     let filteredIssues: Issue[] = issuesCopy;
+    
     if (filterName && filterName != "default") {
       filteredIssues = filteredIssues.filter(
         (issue) => issue.author.name == filterName
       );
+    }
+
+    if (filterStatus && filterStatus != "default"){
+      filteredIssues = filteredIssues.filter(
+        (issue) => issue.state == filterStatus
+        );
     }
 
     if (startValue) {
@@ -66,7 +75,7 @@ export default function IssuePage() {
 
       useEffect(() => {
         filterIssueList();
-      }, [issues, filterName, startValue, endValue]);
+      }, [issues, filterStatus, filterName, startValue, endValue]);
 
 
     return(
@@ -85,6 +94,13 @@ export default function IssuePage() {
         filterList={filterList}
         setFilterList={setFilterList}
         setName={setName}
+        />}
+        {isLoading? null : <SelectStatusIssueComponent 
+        filterStatus={filterStatus}
+        filterList={filterList} 
+        issues={issues}
+        setStatus={setStatus}
+        setFilterList={setFilterList}
         />}
           <div className='issues'>
             {isLoading ? <p>Loading data ...</p> : <IssueList/>}
