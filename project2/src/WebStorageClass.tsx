@@ -13,7 +13,7 @@ abstract class WebStorageClass {
 
     public getPropValue(prop: string) {
         let value = this.storage.getItem(prop);
-        return (value == "")?(()=>{return null;})():(()=>{return value;})();
+        return (value === "")?(()=>{return null;})():(()=>{return value;})();
     }
 
     public removeProp(prop: string) {

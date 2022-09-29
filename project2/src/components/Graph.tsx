@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Container, Paper, Typography, Box } from "@mui/material";
+import { Container, Paper, Box } from "@mui/material";
 import "../styles/Commit.css";
 import { Commit } from "../types"
 import { PieChart } from 'react-minimal-pie-chart';
@@ -19,7 +18,6 @@ function getColor(memberNr: number) {
       color = color + rgb[i];
     }
   
-  console.log(color)
   return color;
 }
 
