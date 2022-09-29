@@ -1,4 +1,4 @@
-import { Container, PropsFor } from "@mui/system";
+import { Container } from "@mui/system";
 import { Dayjs } from "dayjs";
 import { useState, useEffect } from "react";
 import { Commit } from "../types";
@@ -16,12 +16,16 @@ export const FilterComponent = (props: Props) => {
     const [startValue, setStartValue] = useState<Dayjs | null>(null);
     const [endValue, setEndValue] = useState<Dayjs | null>(null);
 
+    
+
+useEffect(() => {
+
     function filterCommitList() {
         const commitsCopy = [...props.commits];
         let filteredCommits: Commit[] = commitsCopy;
-        if (filterName && filterName != "default") {
+        if (filterName && filterName !== "default") {
         filteredCommits = filteredCommits.filter(
-            (commit) => commit.author_name == filterName
+            (commit) => commit.author_name === filterName
         );
         }
 
@@ -43,9 +47,9 @@ export const FilterComponent = (props: Props) => {
         props.setFilterList(filteredCommits);
     }
 
-useEffect(() => {
     filterCommitList();
 }, [props.commits, filterName, startValue, endValue]);
+
     return(
         <Container>
         <div className="dateRange">

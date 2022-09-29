@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Container, Paper, Typography, IconButton } from "@mui/material";
+import { Container, Paper, Typography } from "@mui/material";
 import { Issue } from "../types"
 
 export const IssueComponent = (props: {key:number, issue:Issue}) => {

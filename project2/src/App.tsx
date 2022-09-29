@@ -4,8 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navigationbar from "./components/Navigationbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import IssuePage from "./pages/IssuePage";
-import { WebStorageClass } from "./WebStorageClass";
-import React, { useState } from "react";
+
 
 function App() {
 

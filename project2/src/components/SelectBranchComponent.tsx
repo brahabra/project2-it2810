@@ -17,6 +17,7 @@ export const SelectBranchComponent = (props: Props) => {
     const [branches, setBranches] = useState<Branch[]>([]);
     const ctx = useContext(ProjectContext);
 
+
     const handleChangeBranch = (event: SelectChangeEvent) => {
       const newBranch = event.target.value;
       if (newBranch != null) {
@@ -31,7 +32,7 @@ export const SelectBranchComponent = (props: Props) => {
             setBranches(res);
             props.setLoadedBranch(true);
         })
-    }, [branches]);
+    }, [ctx.projectID, ctx.token]);
     
 
     return (

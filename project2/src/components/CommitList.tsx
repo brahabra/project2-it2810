@@ -4,7 +4,7 @@ import { getCommits } from "../api/fetch";
 import { ProjectContext } from "../ProjectContext";
 import { Commit } from "../types";
 import { CommitComponent } from "./CommitComponent";
-import { FilterComponent } from "./FilterComponent";
+import { FilterComponent } from "./CommitFilterComponent";
 
 interface Props {
     selectedBranch: string
@@ -24,7 +24,7 @@ export const CommitList = (props:Props) => {
           setLoading(true);
         }
       );
-    }, [props.selectedBranch]);
+    }, [props.selectedBranch, ctx.projectID, ctx.token]);
 
     return (
         <Container>

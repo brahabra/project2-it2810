@@ -2,7 +2,6 @@ import { useState } from 'react';
 import "../styles/Home.css";
 import { Input, Button } from "@mui/material";
 import { WebStorageClass } from "../WebStorageClass";
-import { ProjectContext } from '../ProjectContext';
 import { SelectBranchComponent } from '../components/SelectBranchComponent';
 
 export default function Home() {
