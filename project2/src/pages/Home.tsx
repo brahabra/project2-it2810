@@ -16,7 +16,6 @@ export default function Home() {
 
   const onChangeProjectID = (event: React.ChangeEvent<HTMLInputElement>) => {
     setProjectID(event.target.value);
-    console.log(projectID)
   };
   const onChangeProjectToken = (event: React.ChangeEvent<HTMLInputElement>) => {
     setProjectToken(event.target.value);
