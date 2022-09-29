@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { getIssues } from "../api/fetch";
+import { ProjectContext } from "../ProjectContext";
 import { Issue } from "../types";
 import { IssueComponent } from "./IssueComponent";
 import { IssueFilterComponent } from "./IssueFilterComponent";
@@ -9,12 +10,12 @@ import { IssueFilterComponent } from "./IssueFilterComponent";
 export const IssueList = () => {
     const [issues, setIssues] = useState<Issue[]>([]);
     const [filterList, setFilterList] = useState<Issue[]>([]);
+    const ctx = useContext(ProjectContext);
 
     useEffect(() => {
-        getIssues("17381", "glpat-CRs4epaLyzKdvdpGzE_3").then(
+        getIssues(ctx.projectID, ctx.token).then(
           (res: Issue[]) => {
             setIssues(res);
-            //setLoading(false);
           }
         );
       }, []);

@@ -55,7 +55,8 @@ export const IssueFilterComponent = (props: Props) => {
           }
 
         filterIssueList();
-      }, [props.issues, filterStatus, filterName, startValue, endValue]);
+      }, [ props.issues, filterStatus, filterName, startValue, endValue]);
+
       return (
         <Container>
 <div className="dateRange">
