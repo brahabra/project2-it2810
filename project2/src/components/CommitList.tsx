@@ -29,7 +29,7 @@ export const CommitList = (props:Props) => {
 
     return (
         <Container>
-          <Graph commits={commits} />
+          {isLoading ? <Graph commits={commits} /> : null} 
             {isLoading ? <FilterComponent commits={commits} filterList={filterList} setFilterList={setFilterList}/> : null }
             {isLoading ? 
             <Box sx={{ width: "100%", margin: "auto", backgroundColor: "#DAF7A6" }}>
