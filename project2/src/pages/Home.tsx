@@ -4,10 +4,10 @@ import { Input, Button, Select, MenuItem, InputLabel, FormControl, SelectChangeE
 import { CommitComponent } from "../components/CommitComponent";
 import { getBranches } from "../api/fetch";
 import Navbar from "../components/Navigationbar";
-import { WebStorageClass } from "../WebStorageClass";
+import { LocalStorageClass } from "../WebStorageClass";
 
 export default function Home() {
-  const storage = new WebStorageClass();
+  const storage = new LocalStorageClass();
   const [projectID, setProjectID] = useState<string>(selectProjectID());
   const [projectToken, setProjectToken] = useState<string>(selectProjectToken());
   // toggle branch selector

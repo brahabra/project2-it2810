@@ -1,7 +1,11 @@
-import { LocalStorage} from 'typescript-web-storage';
+import { LocalStorage, SessionStorage} from 'typescript-web-storage';
 
-class WebStorageClass {
-    private storage: Storage = new LocalStorage();
+abstract class WebStorageClass {
+    private storage: Storage;
+
+    constructor(storage: Storage) {
+        this.storage = storage;
+    }
 
     public setPropValue(prop: string, value: string) {
         this.storage?.setItem(prop, value);
@@ -21,4 +25,16 @@ class WebStorageClass {
     }
 }
 
-export {WebStorageClass}
+class LocalStorageClass extends WebStorageClass {
+    constructor() {
+        super(new LocalStorage());
+    }
+}
+
+class SessionStorageClass extends WebStorageClass {
+    constructor() {
+        super(new SessionStorage());
+    }
+}
+
+export {LocalStorageClass, SessionStorageClass}
