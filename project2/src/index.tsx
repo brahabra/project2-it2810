@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import { ProjectContextProvider } from './ProjectContext';
 import reportWebVitals from './reportWebVitals';
-import { ProjectContextProvider } from './ProjectContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
