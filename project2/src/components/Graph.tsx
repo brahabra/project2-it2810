@@ -4,16 +4,22 @@ import "../styles/Commit.css";
 import { Commit } from "../types"
 import { PieChart } from 'react-minimal-pie-chart';
 
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-function getRandomColor() {
-  let min:number = 4000;
-  let max:number = 16000000;
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  let color:string = "#" + Math.floor(Math.random() * (max - min) + min).toString(16);
-  while (color.length < 7) {
-    color = color + "0";
-  }
+function getColor(memberNr: number) {
+  const startRange:number[] = [0, 150, 0];
+  const endRange:number = 255;
+  const intervall:number[] = [0, 20, 2];
+  let rgb:string[] = [((startRange[0] + intervall[0]*memberNr)%endRange).toString(16), 
+                      ((startRange[1] + intervall[1]*memberNr)%endRange).toString(16), 
+                      ((startRange[2] + intervall[2]*memberNr)%endRange).toString(16)];
+  let color:string = "#";
+    for (let i = 0; i < rgb.length; i++) {
+      while (rgb[i].length < 2) {
+        rgb[i] = rgb[i] + "0";
+      }
+      color = color + rgb[i];
+    }
+  
+  console.log(color)
   return color;
 }
 
@@ -26,10 +32,12 @@ type Member = {
 function calcMemberDistribution(commits: Commit[]) {
   let members: Map<string, Member> = new Map();
   let member: string;
+  let memberNr:number = 0;
   for (let i = 0; i < commits.length; i++) {
     member = commits[i].committer_name;
     if (typeof members.get(member) === "undefined") {
-      members.set(member, {name: member, commits: 0, color: getRandomColor()}) 
+      members.set(member, {name: member, commits: 0, color: getColor(memberNr)})
+      memberNr++; 
     } 
     members.get(member)!.commits++;  
   }
@@ -45,7 +53,6 @@ interface Props {
 }
 
 export const Graph = (props: Props) => {
-  console.log("hei")
   const membersDistribution = calcMemberDistribution(props.commits);
   const chartData: {title: string, value:number, color: string}[] = [];
   let member: Member;
