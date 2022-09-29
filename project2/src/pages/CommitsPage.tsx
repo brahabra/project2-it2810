@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../styles/CommitsPage.css";
 import { CommitComponent } from "../components/CommitComponent";
 import { Graph } from "../components/Graph";
@@ -8,8 +8,10 @@ import { Commit } from "../types";
 import { Box } from "@mui/material";
 import { Dayjs } from "dayjs";
 import NameRowComponent from "../components/NameRowComponent";
+import { ProjectContext } from "../ProjectContext";
 
 export default function CommitsPage() {
+  const ctx = useContext(ProjectContext);
   const [commits, setCommits] = useState<Commit[]>([]);
   const [isLoading, setLoading] = useState(true);
   const [filterName, setName] = useState("");
@@ -55,7 +57,7 @@ export default function CommitsPage() {
   }
 
   useEffect(() => {
-    getCommits("17381", "glpat-CRs4epaLyzKdvdpGzE_3", "main").then(
+    getCommits(ctx.projectID, ctx.token, ctx.branchName).then(
       (res: Commit[]) => {
         setCommits(res);
         setLoading(false);

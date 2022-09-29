@@ -5,7 +5,7 @@ import { CommitComponent } from "../components/CommitComponent";
 import { getBranches } from "../api/fetch";
 import Navbar from "../components/Navigationbar";
 import { WebStorageClass } from "../WebStorageClass";
-import { ProjectContext } from '../App';
+import { ProjectContext } from '../ProjectContext';
 
 export default function Home() {
   const storage = new WebStorageClass();
@@ -20,7 +20,6 @@ export default function Home() {
 
   const onChangeProjectID = (event: React.ChangeEvent<HTMLInputElement>) => {
     setProjectID(event.target.value);
-    console.log(projectID)
   };
   const onChangeProjectToken = (event: React.ChangeEvent<HTMLInputElement>) => {
     setProjectToken(event.target.value);
