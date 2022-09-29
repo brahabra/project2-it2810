@@ -5,6 +5,7 @@ import { CommitComponent } from "../components/CommitComponent";
 import { getBranches } from "../api/fetch";
 import Navbar from "../components/Navigationbar";
 import { LocalStorageClass } from "../WebStorageClass";
+import logo from "../gitlab-logo-650.jpg"
 
 export default function Home() {
   const storage = new LocalStorageClass();
@@ -63,7 +64,7 @@ export default function Home() {
 
   return (
     <div className="container">
-      <h1>TITLE</h1>
+      <img src={logo} alt="GitLab Logo" />
       <Input
         type="number"
         placeholder="ProjectID"

@@ -1,3 +1,12 @@
 .bg-background-color {
     background-color: #58D68D;
 }
+
+img {
+    width: 200px;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+}
