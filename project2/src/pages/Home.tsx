@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import "../styles/Home.css";
 import { Input, Button } from "@mui/material";
-import { WebStorageClass } from "../WebStorageClass";
+import { LocalStorageClass } from "../WebStorageClass";
 import { SelectBranchComponent } from '../components/SelectBranchComponent';
 
 export default function Home() {

@@ -1,6 +1,6 @@
 import React from "react";
 import App from "./App";
-import { WebStorageClass } from "./WebStorageClass";
+import { LocalStorageClass } from "./WebStorageClass";
 
 interface AppContextInterface {
     projectID: string;
@@ -8,7 +8,7 @@ interface AppContextInterface {
     branchName: string;
 }
 
-const storage = new WebStorageClass();
+const storage = new LocalStorageClass();
 
 const defaultContext = {
   projectID: '17381',

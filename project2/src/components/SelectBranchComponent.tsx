@@ -2,10 +2,10 @@ import {FormControl, Select, MenuItem, InputLabel, SelectChangeEvent} from '@mui
 import { useContext, useEffect, useState } from 'react';
 import { getBranches } from '../api/fetch';
 import { ProjectContext } from '../ProjectContext';
-import { WebStorageClass } from '../WebStorageClass';
+import { LocalStorageClass } from '../WebStorageClass';
 import { Branch } from '../types';
 
-const storage = new WebStorageClass();
+const storage = new LocalStorageClass();
 
 interface Props {
     setLoadedBranch: (value: boolean) => void
