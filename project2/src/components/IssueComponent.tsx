@@ -19,8 +19,8 @@ export const IssueComponent = (props: {key:number, issue:Issue}) => {
          {props.issue.title}</a>
         </Typography>
         <Typography> Author: {props.issue.author.name}</Typography>
-        <Typography>Assignee: {props.issue.assignee.name}</Typography>
-        <Typography> Description: {props.issue.description}</Typography>
+        <Typography>Assignee: {props.issue.assignee !== null ? props.issue.assignee.name : "None"}</Typography>
+        <Typography> Description: {props.issue.description !== null ? props.issue.description : ""}</Typography>
         {props.issue.labels.map((label) => {
             <Typography>{label}</Typography>
         })}
