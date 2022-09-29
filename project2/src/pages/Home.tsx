@@ -63,27 +63,20 @@ export default function Home() {
 
   return (
     <div className="container">
-      <br />
-      <br />
+      <h1>TITLE</h1>
       <Input
         type="number"
         placeholder="ProjectID"
         onChange={onChangeProjectID}
         value={parseInt(projectID)}
       />
-      <br/>
-      <br/>
       <Input
         type="text"
         placeholder="Project Token"
         onChange={onChangeProjectToken}
         value={projectToken}
       />
-      <br />
-      <br />
       <Button onClick={onSubmit}>Submit</Button>
-      <br />
-      <br />
       {toggle && (
       <FormControl style={{width: 250}}>
         <InputLabel>Select branch</InputLabel>
