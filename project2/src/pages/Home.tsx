@@ -5,7 +5,7 @@ import { WebStorageClass } from "../WebStorageClass";
 import { SelectBranchComponent } from '../components/SelectBranchComponent';
 
 export default function Home() {
-  const storage = new WebStorageClass();
+  const storage = new LocalStorageClass();
   const [projectID, setProjectID] = useState<string>(selectProjectID());
   const [projectToken, setProjectToken] = useState<string>(selectProjectToken());
   // toggle branch selector
