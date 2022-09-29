@@ -1,10 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import "../styles/Home.css";
-import { Input, Button, Select, MenuItem, InputLabel, FormControl, SelectChangeEvent} from "@mui/material";
-import { CommitComponent } from "../components/CommitComponent";
-import { getBranches } from "../api/fetch";
-import Navbar from "../components/Navigationbar";
-import { LocalStorageClass } from "../WebStorageClass";
+import { Input, Button } from "@mui/material";
+import { WebStorageClass } from "../WebStorageClass";
+import { SelectBranchComponent } from '../components/SelectBranchComponent';
 
 export default function Home() {
   const storage = new LocalStorageClass();
@@ -12,13 +10,11 @@ export default function Home() {
   const [projectToken, setProjectToken] = useState<string>(selectProjectToken());
   // toggle branch selector
   const [toggle, setToggle] = useState(false);
-  const [isLoading, setLoading] = useState(true);
   const [selectedBranch, setBranchName] = useState<string>("");
-  const [branches, setBranches] = useState<string[]>([]);
+  const [isLoadedBranch, setLoadedBranch] = useState(false)
 
   const onChangeProjectID = (event: React.ChangeEvent<HTMLInputElement>) => {
     setProjectID(event.target.value);
-    console.log(projectID)
   };
   const onChangeProjectToken = (event: React.ChangeEvent<HTMLInputElement>) => {
     setProjectToken(event.target.value);
@@ -32,24 +28,7 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    getBranches("17381", "glpat-CRs4epaLyzKdvdpGzE_3").then((res) => {
-      for (let i = 0; i < res.length; i++) {
-        if(!branches.find((el => el === res[i].name))) {
-          branches.push(res[i].name)
-          
-        } 
-      }
-      setLoading(false);
-    });
-  }, [branches]);
-  
-  const handleChangeBranch = (event: SelectChangeEvent) => {
-    const newBranch = event.target.value;
-    if (newBranch != null) {
-        setBranchName(event.target.value as string);
-    }
-  }
+
 
   function selectProjectID() {
     const data:string | null = storage.getPropValue("projectID");
@@ -84,18 +63,10 @@ export default function Home() {
       <Button onClick={onSubmit}>Submit</Button>
       <br />
       <br />
-      {toggle && (
-      <FormControl style={{width: 250}}>
-        <InputLabel>Select branch</InputLabel>
-        <Select defaultValue={""} onChange={handleChangeBranch}>
-          {branches.map((branch: string) => (
-            <MenuItem key={branch} value={branch}>
-              {branch}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      )}
+      {toggle && <SelectBranchComponent
+      setLoadedBranch={setLoadedBranch} 
+      selectedBranch={selectedBranch} 
+      setBranchName={setBranchName}/>}
     </div>
   );
 }

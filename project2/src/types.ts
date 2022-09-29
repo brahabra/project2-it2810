@@ -42,7 +42,7 @@ export type Issue = {
     iid: number
     project_id: number
     title: string
-    description:	string
+    description: string | null
     state: string
     created_at:	string
     updated_at: string
@@ -52,9 +52,15 @@ export type Issue = {
     milestone: Milestone
     assignees: Assignee[]	
     author: Assignee	
-    assignee: Assignee
+    assignee: Assignee | null
     due_date: string
     confidential: boolean
     issue_type: string
+    web_url: string
+}
+
+export type Branch = {
+    name: string 
+    merged: boolean
     web_url: string
 }

@@ -5,6 +5,7 @@ import Navigationbar from "./components/Navigationbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import IssuePage from "./pages/IssuePage";
 
+
 function App() {
 
   return (
@@ -12,9 +13,9 @@ function App() {
       <Navigationbar/>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/commits" element={<CommitsPage />} />
-          <Route path="/issues" element={<IssuePage />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/commits" element={<CommitsPage />} />
+            <Route path="/issues" element={<IssuePage />} />
         </Routes>
       </Router>
     </div>
