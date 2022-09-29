@@ -24,15 +24,15 @@ export const IssueFilterComponent = (props: Props) => {
             const issuesCopy = [...props.issues];
             let filteredIssues: Issue[] = issuesCopy;
             
-            if (filterName && filterName != "default") {
+            if (filterName && filterName !== "default") {
               filteredIssues = filteredIssues.filter(
-                (issue) => issue.author.name == filterName
+                (issue) => issue.author.name === filterName
               );
             }
         
-            if (filterStatus && filterStatus != "default"){
+            if (filterStatus && filterStatus !== "default"){
               filteredIssues = filteredIssues.filter(
-                (issue) => issue.state == filterStatus
+                (issue) => issue.state === filterStatus
                 );
             }
         

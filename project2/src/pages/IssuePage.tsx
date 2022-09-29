@@ -1,13 +1,5 @@
-import { useEffect, useState } from 'react';
-import { getIssues } from '../api/fetch';
-import { Issue } from '../types';
+import { useState } from 'react';
 import { Container } from '@mui/system';
-import { Box, Paper } from '@mui/material';
-import { IssueComponent } from '../components/IssueComponent'
-import  IssueNameComponent from '../components/IssueNameComponent'
-import DateRangePicker from '../components/DateRangePicker';
-import { Dayjs } from "dayjs";
-import SelectStatusIssueComponent from '../components/SelectStatusIssueComponent';
 import '../styles/IssuePage.css';
 import { IssueList } from '../components/IssueList';
 
