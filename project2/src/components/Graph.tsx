@@ -1,7 +1,9 @@
-import { Container, Paper, Box } from "@mui/material";
+import React, { useState } from "react";
+import { Container, Paper, Typography, Box } from "@mui/material";
 import "../styles/Commit.css";
 import { Commit } from "../types"
 import { PieChart } from 'react-minimal-pie-chart';
+import { style } from "../styles/Styles";
 
 function getColor(memberNr: number) {
   const startRange:number[] = [0, 150, 0];
@@ -61,33 +63,21 @@ export const Graph = (props: Props) => {
   }
   return (
     <Container>
-      <Paper sx={{
-            padding: '20px',
-            borderRadius: '20px',
-            width: 'auto',
-            margin: '20px',
-            textAlign: 'left'
-          }}
-      >
+      <Box sx={style.graphContainer}>
         <>
-        <PieChart
-            data={chartData}
-        />
-          {membersDistribution.map(((member: Member)=>(
-            <Box key={member.name} sx={{
-                                          display: 'flex',
-                                          flexDirection: 'row',
-            }}>
-              <div>
-                <svg width="15" height="15">
-                  <rect width="10" height="10" rx="2" fill={member.color}/>
-                </svg>
-              </div>
-               <div>{member.name}</div>
-               </Box>
+        <Box sx={style.chart}>
+          <PieChart animate={true}  data={chartData}/>
+        </Box>  
+        {membersDistribution.map(((member: Member)=>(
+          <Box key={member.name} sx={style.chartNames}>
+            <svg width="10" height="10">
+              <rect width="10" height="10" rx="2" fill={member.color}/>
+            </svg>
+            <Typography sx={style.removeTextMarg}>{member.name}</Typography>
+          </Box>
           )))}
         </>
-      </Paper>
+      </Box>
     </Container>
   );
 };

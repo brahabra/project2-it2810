@@ -1,5 +1,6 @@
 import {  useState } from "react";
 import "../styles/CommitsPage.css";
+import "../styles/Styles";
 import { SelectBranchComponent } from "../components/SelectBranchComponent";
 import { CommitList } from "../components/CommitList";
 

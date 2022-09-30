@@ -1,68 +1,109 @@
-import { height } from "@mui/system";
-
 export const style = {
+  /*
+  style template:
 
-    graphContainer: {
-      height: '100%',
-      backgroundColor: "#FAFAFA"
-    },
+  classname: {
+    styleProp: 'value',
+    styleProp: 'value',  
+    styleProp: 'value',  
+  },
 
-    chart: {
-      height: '50vh'
-    },
+  to use this in material ui component, add sx={style.classname} to the component prop
+  */
+  // Graph
+  graphContainer: {
+    margin: "auto",
+    width: "75%",
+    height: "70vh",
+    backgroundColor: "#f9f9f9", 
+    borderRadius: "25px",
+    boxShadow: "8",
+  },
 
-    commitPaper: {
-      width: "50%",
-      height: '100%',
-      padding: '20px',
-      borderRadius: '25px',
-      margin: '20px',
-      backgroundColor: "#FAFAFA"
-    },
+  chart: {
+    height: "50vh",
+  },
 
-    commitComponentPaper: {
-      padding: '20px',
-      borderRadius: '25px',
-      margin: '20px',
-      backgroundColor: "white"
-    },
+  chartNames: {
+    margin: "auto",
+    heigth: "20vh",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
 
-    issueListBox: {
-      width: "100%", 
-      margin: "auto", 
-      backgroundColor: "#DAF7A6"
-    },
+  removeTextMarg: {
+    padding: "0px",
+    paddingLeft: "4px",
+    margin: "0",
+  },
 
-    chartNames: {
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'center'
-    },
+ // Commits page
 
-    removeTextMarg: {
-      padding: '0px',
-      paddingLeft: '4px',
-      margin: '0'
-    },
+   commitComponentPaper: {
+    padding: "20px",
+    borderRadius: "25px",
+    margin: "20px",
+    backgroundColor: "white",
+  }, 
 
-    commitPage: {
-      width: "100%", 
-      margin: "auto"
-    },
+  commitListBox: {
+    width: "75%",
+    heigth: "50%",
+    margin: "auto",
+    backgroundColor: "#f9f9f9", 
+    borderRadius: "25px",
+    boxShadow: "8",
+    overflow: "hidden",
+    overflowY: "scroll" 
+  },
 
-    commitsBox: {
-      padding: '20px',
-      borderRadius: '25px',
-      margin: 'auto',
-      width: "100%",
-      backgroundColor: "#FAFAFA"
-    },
+  commitsSelectBranch: {
+    margin: "auto",
+    padding: "20px",
+    textAlign: "center"
+  },
 
-    flexRow: {
-      display: 'flex', 
-      flexDirection: 'row',
-      justifyContent: 'start',
-      marginBottom: '5px',
-    }
+  
+  // Issue page
+  issueListBox: {
+    width: "100%",
+    height: "80vh",
+    margin: "auto",
+    backgroundColor: "#f9f9f9", 
+    borderRadius: "25px",
+    boxShadow: "8",
+    overflow: "hidden"
+  },
 
-}
+  issuesContainer : {
+    height: "70%",
+    overflow: "hidden",
+    overflowY: "scroll",
+  },
+  
+  issueSelectName: {
+    paddingTop: "15px",
+    width: "50%",
+    margin: "auto"
+  },
+
+  issueSelectStatus: {
+    paddingTop: "15px",
+    width: "50%",
+    margin: "auto"
+  },
+
+  issueSelectDates: {
+    paddingTop: "20px",
+    width: "50%",
+    margin: "auto"
+  },
+
+  issuePaper: {
+    padding: '20px',
+    borderRadius: '25px',
+    width: 'auto',
+    margin: '20px',
+  }
+};

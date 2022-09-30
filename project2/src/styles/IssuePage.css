@@ -1,8 +1,11 @@
-.issues {
-    border: 2px solid black;
-    width: 80%;
-    margin: auto;
-    background-color: #DAF7A6;
-    max-height: 75vh; 
-    overflow: auto;
+.header {
+    margin-top: 30px;
+    margin-bottom: 25px;
 }
+
+/*
+@media only screen and (max-height: 1200px) {
+    .commitContainer {
+        flex-direction: column;
+    }
+  }*/

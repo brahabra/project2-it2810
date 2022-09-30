@@ -1,5 +1,6 @@
 import { SelectChangeEvent, Box, InputLabel, Select, MenuItem, FormControl } from '@mui/material';
 import React, { useState } from 'react'
+import { style } from '../styles/Styles';
 import { Commit, Issue } from '../types';
 
 interface Props {
@@ -20,7 +21,7 @@ export default function IssueNameComponent(props: Props) {
       }
 
     return (
-    <Box sx={{ minWidth: 120 }}>
+    <Box sx={style.issueSelectName}>
         <FormControl fullWidth>
         <InputLabel>Name</InputLabel>
         <Select 

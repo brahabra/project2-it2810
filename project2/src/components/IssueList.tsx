@@ -2,9 +2,12 @@ import { Box } from "@mui/material";
 import { useEffect, useState, useContext } from "react";
 import { getIssues } from "../api/fetch";
 import { ProjectContext } from "../ProjectContext";
+import { style } from "../styles/Styles";
 import { Issue } from "../types";
 import { IssueComponent } from "./IssueComponent";
 import { IssueFilterComponent } from "./IssueFilterComponent";
+import "../styles/IssuePage.css";
+
 
 
 export const IssueList = () => {
@@ -21,11 +24,13 @@ export const IssueList = () => {
       }, []);
 
     return (
-        <Box sx={{ width: "100%", margin: "auto", backgroundColor: "#DAF7A6" }}>
+        <Box sx={style.issueListBox}>
           <IssueFilterComponent issues={issues} filterList={filterList} setFilterList={setFilterList} /> 
+          <Box sx={style.issuesContainer}>
           {filterList.map((issue: Issue) => (
                 <IssueComponent key={issue.id} issue={issue} />
           ))}
+          </Box>
         </Box>
       );
 }

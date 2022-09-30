@@ -1,9 +1,10 @@
-import {FormControl, Select, MenuItem, InputLabel, SelectChangeEvent} from '@mui/material'
+import {FormControl, Select, MenuItem, InputLabel, SelectChangeEvent, Box} from '@mui/material'
 import { useContext, useEffect, useState } from 'react';
 import { getBranches } from '../api/fetch';
 import { ProjectContext } from '../ProjectContext';
 import { LocalStorageClass } from '../WebStorageClass';
 import { Branch } from '../types';
+import { style } from "../styles/Styles";
 
 const storage = new LocalStorageClass();
 
@@ -36,6 +37,7 @@ export const SelectBranchComponent = (props: Props) => {
     
 
     return (
+      <Box sx={style.commitsSelectBranch}>
       <FormControl style={{width: 250}}>
         <InputLabel>Select branch</InputLabel>
         <Select defaultValue={""} onChange={handleChangeBranch}>
@@ -45,5 +47,7 @@ export const SelectBranchComponent = (props: Props) => {
             </MenuItem>
           ))}
         </Select>
-      </FormControl>);
+      </FormControl>
+      </Box>
+      );
 }

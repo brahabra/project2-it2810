@@ -3,6 +3,8 @@ import TextField from "@mui/material/TextField";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { Box } from "@mui/material";
+import { style } from "../styles/Styles";
 
 interface Props {
   startValue: Dayjs | null;
@@ -13,6 +15,7 @@ interface Props {
 
 export default function DateRangePicker(props: Props) {
   return (
+    <Box sx={style.issueSelectDates}>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
         label="Start date"
@@ -27,5 +30,6 @@ export default function DateRangePicker(props: Props) {
         renderInput={(params) => <TextField {...params} />}
       />
     </LocalizationProvider>
+    </Box>
   );
 }

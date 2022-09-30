@@ -1,19 +1,15 @@
 import { Container, Paper, Typography } from "@mui/material";
+import { style } from "../styles/Styles";
 import { Issue } from "../types"
 
 export const IssueComponent = (props: {key:number, issue:Issue}) => {
   return (
     <Container>
-      <Paper sx={{
-            padding: '20px',
-            borderRadius: '25px',
-            width: 'auto',
-            margin: '20px',
-          }}
+      <Paper sx={style.issuePaper}
       >
         <>
         <Typography>
-        Title: 
+        Title:
          <a href={props.issue.web_url} > 
          {props.issue.title}</a>
         </Typography>
