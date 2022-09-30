@@ -17,27 +17,26 @@ export const style = {
   graphContainer: {
     margin: "auto",
     width: "100%",
-    height: "70vh",
+    height: "65vh",
     backgroundColor: "#f9f9f9",
     borderRadius: "25px",
     boxShadow: "8",
-    overflow: "hidden",
+    overflowY: "scroll"
   },
 
   // Only the graph
   chart: {
-    height: "50vh",
+    marginTop: "20px",
+    height: "60%"
   },
 
   // The names under the graph
+
   chartNames: {
     margin: "auto",
     display: "flex",
-    flexDirection: "row",
     alignItems: "center",
     paddingLeft: "4px",
-    overflow: "hidden",
-    overflowY: "scroll",
   },
 
   // One commit component 
@@ -49,7 +48,8 @@ export const style = {
 
   // Only the scrollbar commits, not the filters above
   commitListContainer: {
-    height: "100%",
+    height: "60%",
+    marginTop: "20px",
     overflow: "hidden",
     overflowY: "scroll",
   },
@@ -57,7 +57,7 @@ export const style = {
   // The whole commitList, with each commit and filtering options
   commitListBox: {
     width: "100%",
-    height: "70vh",
+    height: "65vh",
     margin: "auto",
     backgroundColor: "#f9f9f9",
     borderRadius: "25px",
@@ -68,16 +68,31 @@ export const style = {
   // select branch
   commitsSelectBranch: {
     margin: "auto",
-    padding: "20px",
+    paddingBottom: "20px",
     textAlign: "center",
   },
+
+  // select name
+  commitSelectName: {
+    paddingTop: "15px",
+    width: "50%",
+    margin: "auto",
+  },
+
+  // select date
+  commitSelectDates: {
+    paddingTop: "20px",
+    width: "100%",
+    margin: "auto",
+  },
+
 
   // ------------------ Issue page ------------------
 
   // The whole issueList, with each issue and filtering options
   issueListBox: {
     width: "100%",
-    height: "80vh",
+    height: "75vh",
     margin: "auto",
     backgroundColor: "#f9f9f9",
     borderRadius: "25px",
@@ -87,7 +102,8 @@ export const style = {
 
   // Only the scrollbar issues, not the filters above
   issuesContainer: {
-    height: "100%",
+    height: "55%",
+    marginTop: "20px",
     overflow: "hidden",
     overflowY: "scroll",
   },

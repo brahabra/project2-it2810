@@ -1,72 +1,70 @@
-import { Container } from "@mui/system";
+import { Container, Box } from "@mui/system";
 import { Dayjs } from "dayjs";
 import { useState, useEffect } from "react";
+import { style } from "../styles/Styles";
 import { Commit } from "../types";
 import DateRangePicker from "./DateRangePicker";
 import NameRowComponent from "./NameRowComponent";
 
 interface Props {
-    commits: Commit[],
-    setFilterList: (value: Commit[]) => void,
-    filterList: Commit[]
+  commits: Commit[];
+  setFilterList: (value: Commit[]) => void;
+  filterList: Commit[];
 }
 
 export const FilterComponent = (props: Props) => {
-    const [filterName, setName] = useState("");
-    const [startValue, setStartValue] = useState<Dayjs | null>(null);
-    const [endValue, setEndValue] = useState<Dayjs | null>(null);
+  const [filterName, setName] = useState("");
+  const [startValue, setStartValue] = useState<Dayjs | null>(null);
+  const [endValue, setEndValue] = useState<Dayjs | null>(null);
 
-    
-
-useEffect(() => {
-
+  useEffect(() => {
     function filterCommitList() {
-        const commitsCopy = [...props.commits];
-        let filteredCommits: Commit[] = commitsCopy;
-        if (filterName && filterName !== "default") {
+      const commitsCopy = [...props.commits];
+      let filteredCommits: Commit[] = commitsCopy;
+      if (filterName && filterName !== "default") {
         filteredCommits = filteredCommits.filter(
-            (commit) => commit.author_name === filterName
+          (commit) => commit.author_name === filterName
         );
-        }
+      }
 
-        if (startValue) {
+      if (startValue) {
         filteredCommits = filteredCommits.filter(
-            (commit) =>
+          (commit) =>
             startValue.isBefore(commit.created_at) ||
             startValue.isSame(commit.created_at, "day")
         );
-        }
+      }
 
-        if (endValue) {
+      if (endValue) {
         filteredCommits = filteredCommits.filter(
-            (commit) =>
+          (commit) =>
             endValue.isAfter(commit.created_at) ||
             endValue.isSame(commit.created_at, "day")
         );
-        }
-        props.setFilterList(filteredCommits);
+      }
+      props.setFilterList(filteredCommits);
     }
 
     filterCommitList();
-}, [props.commits, filterName, startValue, endValue]);
+  }, [props.commits, filterName, startValue, endValue]);
 
-    return(
-        <Container>
-        <div className="dateRange">
+  return (
+    <Container>
+      <Box sx={style.commitSelectDates}>
         <DateRangePicker
-        startValue={startValue}
-        setStartValue={setStartValue}
-        endValue={endValue}
-        setEndValue={setEndValue}
+          startValue={startValue}
+          setStartValue={setStartValue}
+          endValue={endValue}
+          setEndValue={setEndValue}
         />
-        </div>
-    
-        <NameRowComponent
+      </Box>
+      <Box sx={style.commitSelectName}>
+      <NameRowComponent
         filterName={filterName}
         commits={props.commits}
         setName={setName}
-        />
-        </Container>
-
-    )
-}
+      />
+      </Box>
+    </Container>
+  );
+};

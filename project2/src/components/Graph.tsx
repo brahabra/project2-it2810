@@ -66,7 +66,8 @@ export const Graph = (props: Props) => {
         <>
         <Box sx={style.chart}>
           <PieChart animate={true}  data={chartData}/>
-        </Box>  
+        </Box>
+   
         {membersDistribution.map(((member: Member)=>(
           <Box key={member.name} sx={style.chartNames}>
             <svg width="10" height="10">
@@ -75,6 +76,7 @@ export const Graph = (props: Props) => {
             <Typography>{member.name}</Typography>
           </Box>
           )))}
+ 
         </>
       </Box>
     </Container>

@@ -23,7 +23,7 @@ export default function IssueNameComponent(props: Props) {
     return (
     <Box sx={style.issueSelectName}>
         <FormControl fullWidth>
-        <InputLabel>Name</InputLabel>
+        <InputLabel>Author</InputLabel>
         <Select 
         value={props.filterName}
          label="Name" onChange={(event: SelectChangeEvent, child) =>

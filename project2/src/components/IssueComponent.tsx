@@ -16,6 +16,7 @@ export const IssueComponent = (props: { key: number; issue: Issue }) => {
             <strong>ASSIGNEE: </strong>{" "}
             {props.issue.assignee !== null ? props.issue.assignee.name : "None"}
             <br/>
+            <br/>
             <strong>DESCRIPTION: </strong>{" "}
             {props.issue.description !== null ? props.issue.description : ""}
           </p>
