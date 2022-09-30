@@ -35,7 +35,7 @@ export const CommitList = (props:Props) => {
           <Box sx={style.commitListBox}>
           {isLoading ? <FilterComponent commits={commits} filterList={filterList} setFilterList={setFilterList}/> : null }
             {isLoading ? 
-            <Box>
+            <Box sx={style.commitListContainer}>
                 {filterList.map((commit) => (
                     <CommitComponent key={commit.id} commit={commit} />
                 ))}

@@ -22,7 +22,7 @@ type Commit = {
 export const Commit = (props: {key:string, commit:Commit}) => {
   return (
     <Container>
-      <Paper > {/* sx={style.commitPaper} */}
+      <Paper> 
         <Typography>
         Title:
          <a href={props.commit.web_url}>

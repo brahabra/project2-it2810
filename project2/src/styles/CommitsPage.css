@@ -5,16 +5,16 @@
 }
 
 .commitContainer {
-    margin:auto;
+    margin: auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: row;
     width: 75vw;
-    height: 80vh;
 }
 
 @media only screen and (max-width: 850px) {
     .commitContainer {
         flex-direction: column;
+
     }
   }

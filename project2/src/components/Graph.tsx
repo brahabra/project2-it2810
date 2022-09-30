@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Container, Paper, Typography, Box } from "@mui/material";
-import "../styles/Commit.css";
 import { Commit } from "../types"
 import { PieChart } from 'react-minimal-pie-chart';
 import { style } from "../styles/Styles";
@@ -73,7 +72,7 @@ export const Graph = (props: Props) => {
             <svg width="10" height="10">
               <rect width="10" height="10" rx="2" fill={member.color}/>
             </svg>
-            <Typography sx={style.removeTextMarg}>{member.name}</Typography>
+            <Typography>{member.name}</Typography>
           </Box>
           )))}
         </>

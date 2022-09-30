@@ -13,6 +13,7 @@ export default function CommitsPage() {
     <div>
       <div className="header">
         <h2>Commits</h2>
+        <p>Showing the 100 last commits in your repository</p>
       </div>
       <SelectBranchComponent
         setLoadedBranch={setLoadedBranch}

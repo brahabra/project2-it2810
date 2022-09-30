@@ -10,100 +10,113 @@ export const style = {
 
   to use this in material ui component, add sx={style.classname} to the component prop
   */
-  // Graph
+
+  // --------------- Commits page ---------------
+
+  // The whole Graph-container
   graphContainer: {
     margin: "auto",
-    width: "75%",
+    width: "100%",
     height: "70vh",
-    backgroundColor: "#f9f9f9", 
+    backgroundColor: "#f9f9f9",
     borderRadius: "25px",
     boxShadow: "8",
+    overflow: "hidden",
   },
 
+  // Only the graph
   chart: {
     height: "50vh",
   },
 
+  // The names under the graph
   chartNames: {
     margin: "auto",
-    heigth: "20vh",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-  },
-
-  removeTextMarg: {
-    padding: "0px",
     paddingLeft: "4px",
-    margin: "0",
+    overflow: "hidden",
+    overflowY: "scroll",
   },
 
- // Commits page
-
-   commitComponentPaper: {
+  // One commit component 
+  commitComponentPaper: {
     padding: "20px",
     borderRadius: "25px",
     margin: "20px",
-    backgroundColor: "white",
-  }, 
+  },
 
+  // Only the scrollbar commits, not the filters above
+  commitListContainer: {
+    height: "100%",
+    overflow: "hidden",
+    overflowY: "scroll",
+  },
+
+  // The whole commitList, with each commit and filtering options
   commitListBox: {
-    width: "75%",
-    heigth: "50%",
+    width: "100%",
+    height: "70vh",
     margin: "auto",
-    backgroundColor: "#f9f9f9", 
+    backgroundColor: "#f9f9f9",
     borderRadius: "25px",
     boxShadow: "8",
     overflow: "hidden",
-    overflowY: "scroll" 
   },
 
+  // select branch
   commitsSelectBranch: {
     margin: "auto",
     padding: "20px",
-    textAlign: "center"
+    textAlign: "center",
   },
 
-  
-  // Issue page
+  // ------------------ Issue page ------------------
+
+  // The whole issueList, with each issue and filtering options
   issueListBox: {
     width: "100%",
     height: "80vh",
     margin: "auto",
-    backgroundColor: "#f9f9f9", 
+    backgroundColor: "#f9f9f9",
     borderRadius: "25px",
     boxShadow: "8",
-    overflow: "hidden"
+    overflow: "hidden",
   },
 
-  issuesContainer : {
-    height: "70%",
+  // Only the scrollbar issues, not the filters above
+  issuesContainer: {
+    height: "100%",
     overflow: "hidden",
     overflowY: "scroll",
   },
-  
+
+  // select name
   issueSelectName: {
     paddingTop: "15px",
     width: "50%",
-    margin: "auto"
+    margin: "auto",
   },
-
+  // select status
   issueSelectStatus: {
     paddingTop: "15px",
     width: "50%",
-    margin: "auto"
+    margin: "auto",
   },
 
+  // select date
   issueSelectDates: {
     paddingTop: "20px",
     width: "50%",
-    margin: "auto"
+    margin: "auto",
   },
 
+  // one issue component 
   issuePaper: {
-    padding: '20px',
-    borderRadius: '25px',
-    width: 'auto',
-    margin: '20px',
-  }
+    padding: "20px",
+    borderRadius: "25px",
+    width: "auto",
+    margin: "20px",
+  },
 };
