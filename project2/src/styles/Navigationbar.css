@@ -3,10 +3,11 @@
 }
 
 img {
-    width: 200px;
+    width: 150px;
 }
 
-.nav {
-    display: flex;
-    justify-content: center;
+.abs-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
