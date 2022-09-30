@@ -1,9 +1,9 @@
 import * as React from 'react'
-import Home from '../pages/Home'
+import CommitsPage from '../pages/CommitsPage'
 
 const ReactTestRenderer = require('react-test-renderer');
 
 it('renders correctly', () => {
-  const tree = ReactTestRenderer.create(<Home />).toJSON()
+  const tree = ReactTestRenderer.create(<CommitsPage/>).toJSON()
   expect(tree).toMatchSnapshot()
 })
