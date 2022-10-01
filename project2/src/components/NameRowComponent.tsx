@@ -26,7 +26,7 @@ export default function NameRowComponent(props: Props) {
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
-        <InputLabel>Name</InputLabel>
+        <InputLabel>Author</InputLabel>
         <Select
           value={props.filterName}
           label="Name"
