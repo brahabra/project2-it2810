@@ -7,17 +7,6 @@
 
 # testing
 /coverage
-project2/src/tests/__snapshots__/App.test.tsx.snap
-project2/src/tests/__snapshots__/CommitComponent.test.tsx.snap
-project2/src/tests/__snapshots__/CommitFilterComponent.test.tsx.snap
-project2/src/tests/__snapshots__/CommitList.test.tsx.snap
-project2/src/tests/__snapshots__/CommitPage.test.tsx.snap
-project2/src/tests/__snapshots__/Graph.test.tsx.snap
-project2/src/tests/__snapshots__/Home.test.tsx.snap
-project2/src/tests/__snapshots__/IssueComponent.test.tsx.snap
-project2/src/tests/__snapshots__/IssueFilterComponent.test.tsx.snap
-project2/src/tests/__snapshots__/IssuePage.test.tsx.snap
-project2/src/tests/__snapshots__/Navigationbar.test.tsx.snap
 
 # production
 /build

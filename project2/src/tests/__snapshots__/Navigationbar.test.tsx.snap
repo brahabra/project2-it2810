@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<nav
+  className="navbar navbar-expand navbar-dark bg-background-color"
+  style={
+    {
+      "display": "flex",
+      "justifyContent": "center",
+    }
+  }
+>
+  <a
+    className="navbar-brand"
+    href="/"
+  >
+    Logo
+  </a>
+  <div
+    className="navbar-nav"
+    onKeyDown={[Function]}
+  >
+    <a
+      className="nav-link"
+      data-rr-ui-event-key="/commits"
+      disabled={false}
+      href="/commits"
+      onClick={[Function]}
+    >
+      Commits
+    </a>
+    <a
+      className="nav-link"
+      data-rr-ui-event-key="/issues"
+      disabled={false}
+      href="/issues"
+      onClick={[Function]}
+    >
+      Issues
+    </a>
+  </div>
+</nav>
+`;
