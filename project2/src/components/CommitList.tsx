@@ -9,11 +9,11 @@ import { Graph } from "./Graph";
 import { style } from "../styles/Styles";
 import "../styles/CommitsPage.css";
 
-interface Props {
+/*interface Props {
     selectedBranch: string
-}
+}*/
 
-export const CommitList = (props:Props) => {
+export const CommitList = () => {
     const ctx = useContext(ProjectContext);
     const [commits, setCommits] = useState<Commit[]>([]);
     const [filterList, setFilterList] = useState<Commit[]>([]);
@@ -21,13 +21,13 @@ export const CommitList = (props:Props) => {
 
 
     useEffect(() => {
-      getCommits(ctx.projectID, ctx.token, props.selectedBranch).then(
+      getCommits(ctx.projectID, ctx.token /*, props.selectedBranch*/).then(
         (res: Commit[]) => {
           setCommits(res);
           setLoading(true);
         }
       );
-    }, [ props.selectedBranch, ctx.projectID, ctx.token]);
+    }, [ /*props.selectedBranch,*/ ctx.projectID, ctx.token]);
 
     return (
         <div className="commitContainer">

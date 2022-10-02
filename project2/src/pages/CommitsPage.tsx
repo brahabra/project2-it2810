@@ -8,18 +8,17 @@ export default function CommitsPage() {
   const [selectedBranch, setBranchName] = useState<string>("main");
   const [isLoadedBranch, setLoadedBranch] = useState(false)
 
-
   return (
     <div>
       <div className="header">
         <h2>Commits</h2>
-        <p>Showing the 100 last commits in your repository</p>
+        <p>Showing the 100 last commits in your repository to main branch</p>
       </div>
-      <SelectBranchComponent
+     {/*  <SelectBranchComponent
         setLoadedBranch={setLoadedBranch}
         selectedBranch={selectedBranch}
-        setBranchName={setBranchName}/>
-      {isLoadedBranch ? <CommitList selectedBranch={selectedBranch}/> : <p>Loading ...</p>}
+        setBranchName={setBranchName}/> */}
+      <CommitList/>
     </div>
   );
 }
