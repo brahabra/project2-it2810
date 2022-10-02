@@ -6,6 +6,8 @@ import { Commit } from "../types";
 import { CommitComponent } from "./CommitComponent";
 import { FilterComponent } from "./CommitFilterComponent";
 import { Graph } from "./Graph";
+import { style } from "../styles/Styles";
+import "../styles/CommitsPage.css";
 
 interface Props {
     selectedBranch: string
@@ -28,16 +30,18 @@ export const CommitList = (props:Props) => {
     }, [ props.selectedBranch, ctx.projectID, ctx.token]);
 
     return (
-        <Container>
+        <div className="commitContainer">
           {isLoading ? <Graph commits={commits} /> : null} 
-            {isLoading ? <FilterComponent commits={commits} filterList={filterList} setFilterList={setFilterList}/> : null }
+          <Box sx={style.commitListBox}>
+          {isLoading ? <FilterComponent commits={commits} filterList={filterList} setFilterList={setFilterList}/> : null }
             {isLoading ? 
-            <Box sx={{ width: "100%", margin: "auto", backgroundColor: "#DAF7A6" }}>
+            <Box sx={style.commitListContainer}>
                 {filterList.map((commit) => (
                     <CommitComponent key={commit.id} commit={commit} />
                 ))}
             </Box> : <p>Loading Data ...</p> }
-        </Container>
+            </Box>
+        </div>
 
     );
 

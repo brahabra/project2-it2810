@@ -59,14 +59,14 @@ export const IssueFilterComponent = (props: Props) => {
 
       return (
         <Container>
-<div className="dateRange">
+
         <DateRangePicker
           startValue={startValue}
           setStartValue={setStartValue}
           endValue={endValue}
           setEndValue={setEndValue}
         />
-      </div>
+
         <IssueNameComponent 
         filterName={filterName}
         issues={props.issues}
