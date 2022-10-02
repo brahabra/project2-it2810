@@ -1,4 +1,4 @@
-import Home from "./pages/Home";
+import Home from "./pages/HomePage";
 import CommitsPage from "./pages/CommitsPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navigationbar from "./components/Navigationbar";

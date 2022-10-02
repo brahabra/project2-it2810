@@ -20,7 +20,7 @@ const commit: Commit = {
 } 
 
 it('renders correctly', () => {
-    const setFilterList = jest.fn();
+  const setFilterList = jest.fn();
   const tree = ReactTestRenderer.create(<FilterComponent commits={[commit]} filterList={[]} setFilterList={setFilterList} />).toJSON()
   expect(tree).toMatchSnapshot()
 })

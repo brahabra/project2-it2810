@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import "../styles/Home.css";
+import "../styles/HomePage.css";
 import { Input, Button } from "@mui/material";
 import { LocalStorageClass } from "../WebStorageClass";
 import { SelectBranchComponent } from '../components/SelectBranchComponent';
 
-export default function Home() {
+export default function HomePage() {
   const storage = new LocalStorageClass();
   const [projectID, setProjectID] = useState<string>(selectProjectID());
   const [projectToken, setProjectToken] = useState<string>(selectProjectToken());
@@ -27,8 +27,6 @@ export default function Home() {
       storage.setPropValue("projectToken", projectToken);
     }
   };
-
-
 
   function selectProjectID() {
     const data:string | null = storage.getPropValue("projectID");
