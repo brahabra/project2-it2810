@@ -64,7 +64,7 @@ export default function Home() {
 
   return (
     <div className="container">
-      <img src={logo} alt="GitLab Logo" />
+      <img className='homepage-logo' src={logo} alt="GitLab Logo" />
       <Input
         type="number"
         placeholder="ProjectID"

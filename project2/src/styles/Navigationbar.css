@@ -2,12 +2,13 @@
     background-color: #58D68D;
 }
 
-img {
+.navbar-logo {
     width: 150px;
 }
 
-.abs-center-x {
+.abs-center-nav-link {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    bottom: 20%;
 }
