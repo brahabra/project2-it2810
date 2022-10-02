@@ -3,6 +3,7 @@ import "../styles/Home.css";
 import { Input, Button } from "@mui/material";
 import { LocalStorageClass } from "../WebStorageClass";
 import { SelectBranchComponent } from '../components/SelectBranchComponent';
+import logo from "../gitlab-logo-650.jpg"
 
 export default function Home() {
   const storage = new LocalStorageClass();
@@ -10,7 +11,7 @@ export default function Home() {
   const [projectToken, setProjectToken] = useState<string>(selectProjectToken());
   // toggle branch selector
   const [toggle, setToggle] = useState(false);
-  const [selectedBranch, setBranchName] = useState<string>("");
+  const [selectedBranch, setBranchName] = useState<string>("main");
   const [isLoadedBranch, setLoadedBranch] = useState(false)
 
   const onChangeProjectID = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,8 +29,6 @@ export default function Home() {
     }
   };
 
-
-
   function selectProjectID() {
     const data:string | null = storage.getPropValue("projectID");
     return (data == null) ? "17381" : data;
@@ -42,27 +41,20 @@ export default function Home() {
 
   return (
     <div className="container">
-      <br />
-      <br />
+      <img className='homepage-logo' src={logo} alt="GitLab Logo" />
       <Input
         type="number"
         placeholder="ProjectID"
         onChange={onChangeProjectID}
         value={parseInt(projectID)}
       />
-      <br/>
-      <br/>
       <Input
         type="text"
         placeholder="Project Token"
         onChange={onChangeProjectToken}
         value={projectToken}
       />
-      <br />
-      <br />
       <Button onClick={onSubmit}>Submit</Button>
-      <br />
-      <br />
       {toggle && <SelectBranchComponent
       setLoadedBranch={setLoadedBranch} 
       selectedBranch={selectedBranch} 

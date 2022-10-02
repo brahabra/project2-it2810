@@ -1,3 +1,14 @@
 .bg-background-color {
     background-color: #58D68D;
 }
+
+.navbar-logo {
+    width: 150px;
+}
+
+.abs-center-nav-link {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20%;
+}
