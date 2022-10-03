@@ -2,16 +2,12 @@ import { useState } from 'react';
 import "../styles/Home.css";
 import { Input, Button } from "@mui/material";
 import { LocalStorageClass } from "../WebStorageClass";
-import { SelectBranchComponent } from '../components/SelectBranchComponent';
 
 export default function Home() {
   const storage = new LocalStorageClass();
   const [projectID, setProjectID] = useState<string>(selectProjectID());
   const [projectToken, setProjectToken] = useState<string>(selectProjectToken());
-  // toggle branch selector
   const [toggle, setToggle] = useState(false);
-  const [selectedBranch, setBranchName] = useState<string>("");
-  const [isLoadedBranch, setLoadedBranch] = useState(false)
 
   const onChangeProjectID = (event: React.ChangeEvent<HTMLInputElement>) => {
     setProjectID(event.target.value);
@@ -63,10 +59,7 @@ export default function Home() {
       <Button onClick={onSubmit}>Submit</Button>
       <br />
       <br />
-      {toggle && <SelectBranchComponent
-      setLoadedBranch={setLoadedBranch} 
-      selectedBranch={selectedBranch} 
-      setBranchName={setBranchName}/>}
+      {toggle ? <p>Data submitted</p>: null}
     </div>
   );
 }
