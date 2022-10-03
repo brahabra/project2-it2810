@@ -1,6 +1,5 @@
 import {FormControl, Select, MenuItem, InputLabel, SelectChangeEvent, Box} from '@mui/material'
 import { useContext, useEffect, useState } from 'react';
-import { getBranches } from '../api/fetch';
 import { ProjectContext } from '../ProjectContext';
 import { SessionStorageClass } from '../WebStorageClass';
 import { Branch } from '../types';
