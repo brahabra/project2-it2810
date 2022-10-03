@@ -3,8 +3,9 @@
 
 //Our projectID is 17381
 //Project token: glpat-CRs4epaLyzKdvdpGzE_3
-export async function getCommits(projectID = '', token = '', branch = '') {
-    const response = await fetch('https://gitlab.stud.idi.ntnu.no/api/v4/projects/' + projectID + '/repository/commits?refName=' + branch + '&per_page=100', {
+//refName attribute no longer works in Gitlab API since update on 30.09.2022 so fetching commits for branch other than main is deprecated
+export async function getCommits(projectID = '', token = ''  /*, branch = ''*/) {
+    const response = await fetch('https://gitlab.stud.idi.ntnu.no/api/v4/projects/' + projectID + '/repository/commits' /*+ '?refName=' + branch*/ + '?per_page=100', {
   
       method: 'GET', 
       mode: 'cors', 
