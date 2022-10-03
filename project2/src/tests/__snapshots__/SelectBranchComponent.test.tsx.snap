@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
+  style={
+    {
+      "width": 250,
+    }
+  }
+>
+  <label
+    className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+    data-shrink={false}
+  >
+    Select branch
+  </label>
+  <div
+    className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+    onClick={[Function]}
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      className="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <span
+        className="notranslate"
+      >
+        ​
+      </span>
+    </div>
+    <input
+      aria-hidden={true}
+      className="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+      disabled={false}
+      onAnimationStart={[Function]}
+      onChange={[Function]}
+      required={false}
+      tabIndex={-1}
+      value=""
+    />
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
+      data-testid="ArrowDropDownIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M7 10l5 5 5-5z"
+      />
+    </svg>
+    <fieldset
+      aria-hidden={true}
+      className="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+    >
+      <legend
+        className="css-hdw1oc"
+      >
+        <span
+          className="notranslate"
+        >
+          ​
+        </span>
+      </legend>
+    </fieldset>
+  </div>
+</div>
+`;
