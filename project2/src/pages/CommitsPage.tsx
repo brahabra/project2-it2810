@@ -10,23 +10,8 @@ import { SessionStorageClass } from "../WebStorageClass";
 
 export default function CommitsPage() {
   const ctx = useContext(ProjectContext);
-  //const storage = new SessionStorageClass();
-  //const [selectedBranch, setBranchName] = useState<string>(((storage.getPropValue('branchName') !== null ) ?  storage.getPropValue('branchName'): 'main')!);
-  //const [isLoadedBranch, setLoadedBranch] = useState(false)
   const [isLoading, setLoading] = useState(false);
   const [commits, setCommits] = useState<Commit[]>([]);
-  //const [branches, setBranches] = useState<Branch[]>([]);
-
-
-  
- /* useEffect(() => {
-    getBranches(ctx.projectID, ctx.token).then(
-    (res: Branch[]) => {
-        setBranches(res);
-        setLoadedBranch(true);
-        console.log('done1')
-    })
-}, [ctx.projectID, ctx.token]);*/
 
   useEffect(() => {
     getCommits(ctx.projectID, ctx.token).then(
@@ -41,14 +26,9 @@ export default function CommitsPage() {
     <div>
       <div className="header">
         <h2>Commits</h2>
-        <p>Showing the 100 last commits in your repository</p>
+        <p>Showing the 100 last commits in your repository to main branch</p>
       </div>
-      {/*<SelectBranchComponent
-        branches={branches}
-        setLoadedBranch={setLoadedBranch}
-        selectedBranch={selectedBranch}
-        setBranchName={setBranchName}/> */}
-      {isLoading ? <CommitList /*selectedBranch={selectedBranch}*/ commits={commits} isLoading={isLoading} /> : <p>Loading ...</p>} 
+      {isLoading ? <CommitList commits={commits} isLoading={isLoading} /> : <p>Loading ...</p>} 
     </div>
   );
 }

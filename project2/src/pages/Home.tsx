@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useState } from "react";
 import "../styles/Home.css";
 import { Input, Button } from "@mui/material";
 import { LocalStorageClass } from "../WebStorageClass";
 import logo from "../gitlab-logo-650.jpg"
+import { getCommits } from "../api/fetch";
 
 export default function Home() {
   const storage = new LocalStorageClass();
   const [projectID, setProjectID] = useState<string>(selectProjectID());
   const [projectToken, setProjectToken] = useState<string>(selectProjectToken());
-  const [toggle, setToggle] = useState(false);
+  const [feedbackMessage, setFeedbackMessage] = useState("");
 
   const onChangeProjectID = (event: React.ChangeEvent<HTMLInputElement>) => {
     setProjectID(event.target.value);
@@ -16,23 +17,32 @@ export default function Home() {
   const onChangeProjectToken = (event: React.ChangeEvent<HTMLInputElement>) => {
     setProjectToken(event.target.value);
   };
-  
+
+
+
   const onSubmit = () => {
-    if (projectID !== null && projectToken !== "") {
-      setToggle(!toggle)
-      storage.setPropValue("projectID", projectID);
-      storage.setPropValue("projectToken", projectToken);
-    }
+    getCommits(projectID, projectToken).then((res) =>{
+      if(res){
+        if (projectID !== null && projectToken !== "") {
+          setFeedbackMessage("Repository sucessfully added!")
+          storage.setPropValue("projectID", projectID);
+          storage.setPropValue("projectToken", projectToken);
+        }
+      }
+      else{
+        setFeedbackMessage("Invalid ID and token. Could not load repository ...");
+      }
+    })
   };
 
   function selectProjectID() {
-    const data:string | null = storage.getPropValue("projectID");
-    return (data == null) ? "17381" : data;
+    const data: string | null = storage.getPropValue("projectID");
+    return data == null ? "" : data;
   }
 
   function selectProjectToken() {
-    const data:string | null = storage.getPropValue("projectToken");
-    return (data == null) ? "glpat-CRs4epaLyzKdvdpGzE_3" : data;
+    const data: string | null = storage.getPropValue("projectToken");
+    return data == null ? "" : data;
   }
 
   return (
@@ -51,7 +61,7 @@ export default function Home() {
         value={projectToken}
       />
       <Button onClick={onSubmit}>Submit</Button>
-      {toggle ? <p>Data submitted</p>: null}
+      <div className="feedbackText"> {feedbackMessage} </div>
     </div>
   );
 }

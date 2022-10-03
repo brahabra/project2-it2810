@@ -10,16 +10,12 @@ import { style } from "../styles/Styles";
 import "../styles/CommitsPage.css";
 
 interface Props {
-    //selectedBranch: string
     commits: Commit[]
     isLoading: boolean
 }
 
 export const CommitList = (props:Props) => {
-    //const ctx = useContext(ProjectContext);
-    //const [commits, setCommits] = useState<Commit[]>([]);
     const [filterList, setFilterList] = useState<Commit[]>([]);
-    //const [isLoading, setLoading] = useState(false);
 
     return (
         <div className="commitContainer">

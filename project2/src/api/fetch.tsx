@@ -17,7 +17,9 @@ export async function getCommits(projectID = '', token = ''  /*, branch = ''*/) 
       },
       redirect: 'follow',
     });
-    return response.json(); // parses JSON response into native JavaScript objects
+    if(response.ok){
+      return response.json(); // parses JSON response into native JavaScript objects
+    }
 };
 
 export async function getIssues(projectID = '', token = '') {

@@ -10,7 +10,7 @@ export default function IssuePage() {
         <Container>
           <div className='header'>
             <h2>Issues</h2>
-            <p>Showing the 20 last created issues in your repository</p>
+            <p>Showing the 20 last created issues in your repository to main branch</p>
           </div>
           <IssueList/>
         </Container>
