@@ -136,4 +136,11 @@ export const style = {
     width: "auto",
     margin: "20px",
   },
+  // Navbar buttons
+  navbarButton: {
+    color: "white",
+    margin: "5px",
+    borderRadius: "5px",
+    boxShadow: "5"
+  }
 };
