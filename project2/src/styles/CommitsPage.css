@@ -1,18 +1,20 @@
 .header {
-    margin: auto;
     text-align: center;
 }
 
-.commits {
-    border: 2px solid black;
-    width: 80%;
+.commitContainer {
     margin: auto;
-    background-color: #DAF7A6;
-    max-height: 75vh; 
-    overflow: auto;
+    display: flex;
+    gap: 15px;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 75vw;
+
 }
 
-.dateRange{
-    margin:auto;
-    text-align: center;
-}
+@media only screen and (max-width: 850px) {
+    .commitContainer {
+        flex-direction: column;
+
+    }
+  }

@@ -1,12 +1,12 @@
-.content {
-    margin: auto;
-    text-align: center;
-    width: 20vw;
-    height: 20vw;
-    border: 2px solid black;
-}
-
 .container {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 700px;
+    justify-content: center;
+    align-items: center;
 }
 
+.homepage-logo {
+    width: 200px;
+}

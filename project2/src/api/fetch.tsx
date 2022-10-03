@@ -3,8 +3,9 @@
 
 //Our projectID is 17381
 //Project token: glpat-CRs4epaLyzKdvdpGzE_3
-export async function getCommits(projectID = '', token = '', branch = '') {
-    const response = await fetch('https://gitlab.stud.idi.ntnu.no/api/v4/projects/' + projectID + '/repository/commits?refName=' + branch + '&per_page=100', {
+//refName attribute no longer works in Gitlab API since update on 30.09.2022 so fetching commits for branch other than main is deprecated
+export async function getCommits(projectID = '', token = ''  /*, branch = ''*/) {
+    const response = await fetch('https://gitlab.stud.idi.ntnu.no/api/v4/projects/' + projectID + '/repository/commits' /*+ '?refName=' + branch*/ + '?per_page=100', {
   
       method: 'GET', 
       mode: 'cors', 
@@ -16,7 +17,9 @@ export async function getCommits(projectID = '', token = '', branch = '') {
       },
       redirect: 'follow',
     });
-    return response.json(); // parses JSON response into native JavaScript objects
+    if(response.ok){
+      return response.json(); // parses JSON response into native JavaScript objects
+    }
 };
 
 export async function getIssues(projectID = '', token = '') {
@@ -35,6 +38,7 @@ export async function getIssues(projectID = '', token = '') {
   return response.json(); // parses JSON response into native JavaScript objects
 };
 
+/* getBranches is deprecated, se comment on getCommits
 export async function getBranches(projectID = '', token = '') {
   const response = await fetch('https://gitlab.stud.idi.ntnu.no/api/v4/projects/' + projectID + '/repository/branches/', {
 
@@ -49,4 +53,4 @@ export async function getBranches(projectID = '', token = '') {
       redirect: 'follow', 
   });
   return response.json(); // parses JSON response into native JavaScript objects
-};
+};*/

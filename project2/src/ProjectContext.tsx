@@ -11,16 +11,16 @@ interface AppContextInterface {
 const storage = new LocalStorageClass();
 
 const defaultContext = {
-  projectID: '17381',
-  token: 'glpat-CRs4epaLyzKdvdpGzE_3',
+  projectID: '',
+  token: '',
   branchName: 'main'
 }
 
 export const ProjectContext = React.createContext<AppContextInterface>(defaultContext);
 
 const appContext: AppContextInterface = {
-      projectID: ((storage.getPropValue('projectID') !== null ) ?  storage.getPropValue('projectID') : '17381')!,
-      token: ((storage.getPropValue('projectToken') !== null ) ?  storage.getPropValue('projectToken'): 'glpat-CRs4epaLyzKdvdpGzE_3')!,
+      projectID: ((storage.getPropValue('projectID') !== null ) ?  storage.getPropValue('projectID') : '')!,
+      token: ((storage.getPropValue('projectToken') !== null ) ?  storage.getPropValue('projectToken'): '')!,
       branchName: ((storage.getPropValue('branchName') !== null ) ?  storage.getPropValue('branchName'): 'main')!
 }
 

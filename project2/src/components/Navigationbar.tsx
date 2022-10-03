@@ -1,21 +1,22 @@
-import React from 'react'
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav';
-import { Container } from "@mui/material";
 import '../styles/Navigationbar.css'
+import logo from "../gitlab-logo-400.png"
 
 export default function Navigationbar() {
-    return (
-        <>
-            <Navbar style={{display:'flex', justifyContent: 'center'}} bg="background-color" variant='dark'>
-                <Navbar.Brand href='/'>
-                    Logo
-                </Navbar.Brand>
-                <Nav>
-                    <Nav.Link  href='/commits'>Commits</Nav.Link>
-                    <Nav.Link href='/issues'>Issues</Nav.Link>
-                </Nav>
-            </Navbar>
-        </>
-    )
+  return (
+      <nav className="navbar navbar-dark navbar-expand bg-background-color">
+        <a href="/" className="">
+          <img className='navbar-logo' src={logo} alt="GitLab Logo" />
+        </a>
+        <div className="align-items-center" >
+            <ul className="navbar-nav abs-center-nav-link">
+                <li className="nav-item">
+                    <a className="nav-link" href="/commits">Commits</a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" href="/issues">Issues</a>
+                </li>
+            </ul>
+        </div>
+      </nav>
+  )
 }

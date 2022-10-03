@@ -6,38 +6,30 @@ import { Commit } from "../types";
 import { CommitComponent } from "./CommitComponent";
 import { FilterComponent } from "./CommitFilterComponent";
 import { Graph } from "./Graph";
+import { style } from "../styles/Styles";
+import "../styles/CommitsPage.css";
 
 interface Props {
-    selectedBranch: string
+    commits: Commit[]
+    isLoading: boolean
 }
 
 export const CommitList = (props:Props) => {
-    const ctx = useContext(ProjectContext);
-    const [commits, setCommits] = useState<Commit[]>([]);
     const [filterList, setFilterList] = useState<Commit[]>([]);
-    const [isLoading, setLoading] = useState(false);
-
-
-    useEffect(() => {
-      getCommits(ctx.projectID, ctx.token, props.selectedBranch).then(
-        (res: Commit[]) => {
-          setCommits(res);
-          setLoading(true);
-        }
-      );
-    }, [ props.selectedBranch, ctx.projectID, ctx.token]);
 
     return (
-        <Container>
-          {isLoading ? <Graph commits={commits} /> : null} 
-            {isLoading ? <FilterComponent commits={commits} filterList={filterList} setFilterList={setFilterList}/> : null }
-            {isLoading ? 
-            <Box sx={{ width: "100%", margin: "auto", backgroundColor: "#DAF7A6" }}>
+        <div className="commitContainer">
+          {props.isLoading ? <Graph commits={props.commits} /> : null} 
+          <Box sx={style.commitListBox}>
+          {props.isLoading ? <FilterComponent commits={props.commits} filterList={filterList} setFilterList={setFilterList}/> : null }
+          {props.isLoading ? 
+            <Box sx={style.commitListContainer}>
                 {filterList.map((commit) => (
                     <CommitComponent key={commit.id} commit={commit} />
                 ))}
             </Box> : <p>Loading Data ...</p> }
-        </Container>
+          </Box>
+        </div>
 
     );
 

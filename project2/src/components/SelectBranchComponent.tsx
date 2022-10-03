@@ -1,20 +1,22 @@
-import {FormControl, Select, MenuItem, InputLabel, SelectChangeEvent} from '@mui/material'
+import {FormControl, Select, MenuItem, InputLabel, SelectChangeEvent, Box} from '@mui/material'
 import { useContext, useEffect, useState } from 'react';
 import { getBranches } from '../api/fetch';
 import { ProjectContext } from '../ProjectContext';
-import { LocalStorageClass } from '../WebStorageClass';
+import { SessionStorageClass } from '../WebStorageClass';
 import { Branch } from '../types';
+import { style } from "../styles/Styles";
 
-const storage = new LocalStorageClass();
+const storage = new SessionStorageClass();
 
 interface Props {
     setLoadedBranch: (value: boolean) => void
     setBranchName: (value:string) => void,
+    branches: Branch[]
     selectedBranch: string,
 }
 
 export const SelectBranchComponent = (props: Props) => {
-    const [branches, setBranches] = useState<Branch[]>([]);
+    //const [branches, setBranches] = useState<Branch[]>([]);
     const ctx = useContext(ProjectContext);
 
 
@@ -23,27 +25,22 @@ export const SelectBranchComponent = (props: Props) => {
       if (newBranch != null) {
           props.setBranchName(event.target.value as string);
           storage.setPropValue('branchName', props.selectedBranch)
+          console.log(props.selectedBranch)
       }
     }
-
-    useEffect(() => {
-        getBranches(ctx.projectID, ctx.token).then(
-        (res: Branch[]) => {
-            setBranches(res);
-            props.setLoadedBranch(true);
-        })
-    }, [ctx.projectID, ctx.token]);
-    
-
+  
     return (
+      <Box sx={style.commitsSelectBranch}>
       <FormControl style={{width: 250}}>
         <InputLabel>Select branch</InputLabel>
         <Select defaultValue={""} onChange={handleChangeBranch}>
-          {branches.map((branch: Branch) => (
+          {props.branches.map((branch: Branch) => (
             <MenuItem key={branch.name} value={branch.name}>
               {branch.name}
             </MenuItem>
           ))}
         </Select>
-      </FormControl>);
+      </FormControl>
+      </Box>
+      );
 }
