@@ -28,9 +28,8 @@ export default function Home() {
 
 
   const onSubmit = () => {
-    
     getCommits(projectID, projectToken, "main").then((res) =>{
-      if(res.length){
+      if(res){
         if (projectID !== null && projectToken !== "") {
           setFeedbackMessage("Repository sucessfully added!")
           storage.setPropValue("projectID", projectID);
@@ -38,7 +37,7 @@ export default function Home() {
         }
       }
       else{
-        setFeedbackMessage("Could not load repository ...");
+        setFeedbackMessage("Invalid ID and token. Could not load repository ...");
       }
     })
   };
