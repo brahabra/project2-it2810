@@ -4,7 +4,7 @@ import "../styles/Styles";
 import { SelectBranchComponent } from "../components/SelectBranchComponent";
 import { CommitList } from "../components/CommitList";
 import { Branch, Commit } from "../types";
-import { getBranches, getCommits } from "../api/fetch";
+import { getCommits } from "../api/fetch";
 import { ProjectContext } from "../ProjectContext";
 import { SessionStorageClass } from "../WebStorageClass";
 

@@ -4,8 +4,11 @@ exports[`renders correctly 1`] = `
 <div
   className="container"
 >
-  <br />
-  <br />
+  <img
+    alt="GitLab Logo"
+    className="homepage-logo"
+    src="test-file-stub"
+  />
   <div
     className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-1tcs2i1-MuiInputBase-root-MuiInput-root"
     onClick={[Function]}
@@ -18,11 +21,9 @@ exports[`renders correctly 1`] = `
       onFocus={[Function]}
       placeholder="ProjectID"
       type="number"
-      value={17381}
+      value={NaN}
     />
   </div>
-  <br />
-  <br />
   <div
     className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-1tcs2i1-MuiInputBase-root-MuiInput-root"
     onClick={[Function]}
@@ -35,11 +36,9 @@ exports[`renders correctly 1`] = `
       onFocus={[Function]}
       placeholder="Project Token"
       type="text"
-      value="glpat-CRs4epaLyzKdvdpGzE_3"
+      value=""
     />
   </div>
-  <br />
-  <br />
   <button
     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1e6y48t-MuiButtonBase-root-MuiButton-root"
     disabled={false}
@@ -61,7 +60,11 @@ exports[`renders correctly 1`] = `
   >
     Submit
   </button>
-  <br />
-  <br />
+  <div
+    className="feedbackText"
+  >
+     
+     
+  </div>
 </div>
 `;

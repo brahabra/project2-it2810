@@ -5,44 +5,54 @@ exports[`renders correctly 1`] = `
   className="MuiContainer-root MuiContainer-maxWidthLg css-1oqqzyl-MuiContainer-root"
 >
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-pn6xia-MuiPaper-root"
+    className="MuiBox-root css-1e49ev9"
   >
-    <svg
-      height="100%"
-      viewBox="0 0 100 100"
-      width="100%"
-    >
-      <path
-        d="M 75 50 A 25 25 0 1 1 74.99999999619229 49.99956366768703"
-        fill="none"
-        stroke="#009600"
-        strokeWidth={50}
-        style={{}}
-      >
-        <title>
-          test test
-        </title>
-      </path>
-    </svg>
     <div
-      className="MuiBox-root css-1xhj18k"
+      className="MuiBox-root css-r9z23n"
     >
-      <div>
-        <svg
-          height="15"
-          width="15"
+      <svg
+        height="100%"
+        viewBox="0 0 100 100"
+        width="100%"
+      >
+        <path
+          d="M 75 50 A 25 25 0 1 1 74.99999999619229 49.99956366768703"
+          fill="none"
+          stroke="#009600"
+          strokeDasharray={157.07963267948966}
+          strokeDashoffset={157.07963267948966}
+          strokeWidth={50}
+          style={
+            {
+              "transition": "stroke-dashoffset 500ms ease-out",
+            }
+          }
         >
-          <rect
-            fill="#009600"
-            height="10"
-            rx="2"
-            width="10"
-          />
-        </svg>
-      </div>
-      <div>
+          <title>
+            test test
+          </title>
+        </path>
+      </svg>
+    </div>
+    <div
+      className="MuiBox-root css-h1n0bu"
+    >
+      <svg
+        height="10"
+        width="10"
+      >
+        <rect
+          fill="#009600"
+          height="10"
+          rx="2"
+          width="10"
+        />
+      </svg>
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+      >
         test test
-      </div>
+      </p>
     </div>
   </div>
 </div>

@@ -7,45 +7,46 @@ exports[`renders correctly 1`] = `
   <div
     className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1djve74-MuiPaper-root"
   >
-    <p
-      className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
-    >
-      Title:
+    <p>
+      <strong>
+        TITLE: 
+      </strong>
       <a
         href="example.com"
       >
         issue
       </a>
-    </p>
-    <p
-      className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
-    >
-       Author: 
+      <br />
+      <strong>
+        AUTHOR: 
+      </strong>
+       
       author
-    </p>
-    <p
-      className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
-    >
-      Assignee: 
+      <br />
+      <strong>
+        ASSIGNEE: 
+      </strong>
+       
       None
-    </p>
-    <p
-      className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
-    >
-       Description: 
+      <br />
+      <br />
+      <strong>
+        DESCRIPTION: 
+      </strong>
+       
       issue
     </p>
-    <p
-      className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
-    >
-      Status: 
-      opened
+    <p>
+      <strong>
+        STATUS: 
+      </strong>
        
-    </p>
-    <p
-      className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
-    >
-      Date Created: 
+      opened
+      <br />
+      <strong>
+        DATE CREATED: 
+      </strong>
+       
       2022-09-30
     </p>
   </div>

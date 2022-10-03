@@ -2,42 +2,45 @@
 
 exports[`renders correctly 1`] = `
 <nav
-  className="navbar navbar-expand navbar-dark bg-background-color"
-  style={
-    {
-      "display": "flex",
-      "justifyContent": "center",
-    }
-  }
+  className="navbar navbar-dark navbar-expand bg-background-color"
 >
   <a
-    className="navbar-brand"
+    className=""
     href="/"
   >
-    Logo
+    <img
+      alt="GitLab Logo"
+      className="navbar-logo"
+      src="test-file-stub"
+    />
   </a>
   <div
-    className="navbar-nav"
-    onKeyDown={[Function]}
+    className="align-items-center"
   >
-    <a
-      className="nav-link"
-      data-rr-ui-event-key="/commits"
-      disabled={false}
-      href="/commits"
-      onClick={[Function]}
+    <ul
+      className="navbar-nav abs-center-nav-link"
     >
-      Commits
-    </a>
-    <a
-      className="nav-link"
-      data-rr-ui-event-key="/issues"
-      disabled={false}
-      href="/issues"
-      onClick={[Function]}
-    >
-      Issues
-    </a>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="/commits"
+        >
+          Commits
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="/issues"
+        >
+          Issues
+        </a>
+      </li>
+    </ul>
   </div>
 </nav>
 `;

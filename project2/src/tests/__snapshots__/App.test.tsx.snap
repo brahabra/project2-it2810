@@ -5,49 +5,55 @@ exports[`renders correctly 1`] = `
   className="App"
 >
   <nav
-    className="navbar navbar-expand navbar-dark bg-background-color"
-    style={
-      {
-        "display": "flex",
-        "justifyContent": "center",
-      }
-    }
+    className="navbar navbar-dark navbar-expand bg-background-color"
   >
     <a
-      className="navbar-brand"
+      className=""
       href="/"
     >
-      Logo
+      <img
+        alt="GitLab Logo"
+        className="navbar-logo"
+        src="test-file-stub"
+      />
     </a>
     <div
-      className="navbar-nav"
-      onKeyDown={[Function]}
+      className="align-items-center"
     >
-      <a
-        className="nav-link"
-        data-rr-ui-event-key="/commits"
-        disabled={false}
-        href="/commits"
-        onClick={[Function]}
+      <ul
+        className="navbar-nav abs-center-nav-link"
       >
-        Commits
-      </a>
-      <a
-        className="nav-link"
-        data-rr-ui-event-key="/issues"
-        disabled={false}
-        href="/issues"
-        onClick={[Function]}
-      >
-        Issues
-      </a>
+        <li
+          className="nav-item"
+        >
+          <a
+            className="nav-link"
+            href="/commits"
+          >
+            Commits
+          </a>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <a
+            className="nav-link"
+            href="/issues"
+          >
+            Issues
+          </a>
+        </li>
+      </ul>
     </div>
   </nav>
   <div
     className="container"
   >
-    <br />
-    <br />
+    <img
+      alt="GitLab Logo"
+      className="homepage-logo"
+      src="test-file-stub"
+    />
     <div
       className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-1tcs2i1-MuiInputBase-root-MuiInput-root"
       onClick={[Function]}
@@ -60,11 +66,9 @@ exports[`renders correctly 1`] = `
         onFocus={[Function]}
         placeholder="ProjectID"
         type="number"
-        value={17381}
+        value={NaN}
       />
     </div>
-    <br />
-    <br />
     <div
       className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-1tcs2i1-MuiInputBase-root-MuiInput-root"
       onClick={[Function]}
@@ -77,11 +81,9 @@ exports[`renders correctly 1`] = `
         onFocus={[Function]}
         placeholder="Project Token"
         type="text"
-        value="glpat-CRs4epaLyzKdvdpGzE_3"
+        value=""
       />
     </div>
-    <br />
-    <br />
     <button
       className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1e6y48t-MuiButtonBase-root-MuiButton-root"
       disabled={false}
@@ -103,8 +105,12 @@ exports[`renders correctly 1`] = `
     >
       Submit
     </button>
-    <br />
-    <br />
+    <div
+      className="feedbackText"
+    >
+       
+       
+    </div>
   </div>
 </div>
 `;

@@ -10,15 +10,18 @@ exports[`renders correctly 1`] = `
     <h2>
       Issues
     </h2>
+    <p>
+      Showing the 20 last created issues in your repository to main branch
+    </p>
   </div>
   <div
-    className="MuiBox-root css-1hbx5c7"
+    className="MuiBox-root css-12y0dyi"
   >
     <div
       className="container"
     >
       <div
-        className="dateRange"
+        className="MuiBox-root css-16jp58h"
       >
         <div
           className="MuiFormControl-root MuiTextField-root css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -180,7 +183,7 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="MuiBox-root css-ece9u5"
+        className="MuiBox-root css-136q44e"
       >
         <div
           className="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
@@ -189,7 +192,7 @@ exports[`renders correctly 1`] = `
             className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink={false}
           >
-            Name
+            Author
           </label>
           <div
             className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
@@ -249,7 +252,7 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="MuiBox-root css-ece9u5"
+        className="MuiBox-root css-136q44e"
       >
         <div
           className="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
@@ -318,6 +321,9 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
     </div>
+    <div
+      className="MuiBox-root css-1tv3fp7"
+    />
   </div>
 </div>
 `;

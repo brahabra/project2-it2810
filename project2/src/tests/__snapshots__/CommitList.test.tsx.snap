@@ -2,10 +2,14 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="MuiContainer-root MuiContainer-maxWidthLg css-1oqqzyl-MuiContainer-root"
+  className="commitContainer"
 >
-  <p>
-    Loading Data ...
-  </p>
+  <div
+    className="MuiBox-root css-1w8o6u8"
+  >
+    <p>
+      Loading Data ...
+    </p>
+  </div>
 </div>
 `;
