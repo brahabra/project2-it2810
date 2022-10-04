@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<nav
+  className="navbar navbar-dark navbar-expand bg-background-color"
+>
+  <a
+    className=""
+    href="/"
+  >
+    <img
+      alt="GitLab Logo"
+      className="navbar-logo"
+      src="test-file-stub"
+    />
+  </a>
+  <div
+    className="align-items-center"
+  >
+    <ul
+      className="navbar-nav abs-center-nav-link"
+    >
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="/commits"
+        >
+          Commits
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="/issues"
+        >
+          Issues
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+`;

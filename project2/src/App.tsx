@@ -1,4 +1,4 @@
-import Home from "./pages/Home";
+import Home from "./pages/HomePage";
 import CommitsPage from "./pages/CommitsPage";
 import Navigationbar from "./components/Navigationbar";
 import IssuePage from "./pages/IssuePage";

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    className="header"
+  >
+    <h2>
+      Commits
+    </h2>
+    <p>
+      Showing the 100 last commits in your repository to main branch
+    </p>
+  </div>
+  <p>
+    Loading ...
+  </p>
+</div>
+`;

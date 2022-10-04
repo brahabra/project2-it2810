@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="MuiContainer-root MuiContainer-maxWidthLg css-1oqqzyl-MuiContainer-root"
+>
+  <div
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1djve74-MuiPaper-root"
+  >
+    <p>
+      <strong>
+        TITLE: 
+      </strong>
+      <a
+        href="example.com"
+      >
+        issue
+      </a>
+      <br />
+      <strong>
+        AUTHOR: 
+      </strong>
+       
+      author
+      <br />
+      <strong>
+        ASSIGNEE: 
+      </strong>
+       
+      None
+      <br />
+      <br />
+      <strong>
+        DESCRIPTION: 
+      </strong>
+       
+      issue
+    </p>
+    <p>
+      <strong>
+        STATUS: 
+      </strong>
+       
+      opened
+      <br />
+      <strong>
+        DATE CREATED: 
+      </strong>
+       
+      2022-09-30
+    </p>
+  </div>
+</div>
+`;

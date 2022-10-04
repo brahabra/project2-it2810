@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="container"
+>
+  <img
+    alt="GitLab Logo"
+    className="homepage-logo"
+    src="test-file-stub"
+  />
+  <div
+    className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-1tcs2i1-MuiInputBase-root-MuiInput-root"
+    onClick={[Function]}
+  >
+    <input
+      className="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+      onAnimationStart={[Function]}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      placeholder="ProjectID"
+      type="number"
+      value={NaN}
+    />
+  </div>
+  <div
+    className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-1tcs2i1-MuiInputBase-root-MuiInput-root"
+    onClick={[Function]}
+  >
+    <input
+      className="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+      onAnimationStart={[Function]}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      placeholder="Project Token"
+      type="text"
+      value=""
+    />
+  </div>
+  <button
+    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    Submit
+  </button>
+  <div
+    className="feedbackText"
+  >
+     
+     
+  </div>
+</div>
+`;

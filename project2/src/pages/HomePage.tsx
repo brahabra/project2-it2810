@@ -1,12 +1,12 @@
-import { useState } from "react";
-import "../styles/Home.css";
+import { useState } from 'react';
+import "../styles/HomePage.css";
 import { Input, Button } from "@mui/material";
 import { LocalStorageClass } from "../WebStorageClass";
 import logo from "../gitlab-logo-650.jpg"
 import { getCommits } from "../api/fetch";
 
-//Home page
-export default function Home() {
+//Home Page
+export default function HomePage() {
   const storage = new LocalStorageClass();
   const [projectID, setProjectID] = useState<string>(selectProjectID());
   const [projectToken, setProjectToken] = useState<string>(selectProjectToken());

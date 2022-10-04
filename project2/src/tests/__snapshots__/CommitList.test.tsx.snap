@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="commitContainer"
+>
+  <div
+    className="MuiBox-root css-1w8o6u8"
+  >
+    <p>
+      Loading Data ...
+    </p>
+  </div>
+</div>
+`;
