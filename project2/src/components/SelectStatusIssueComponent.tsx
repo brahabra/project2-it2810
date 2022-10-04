@@ -1,7 +1,6 @@
 import { SelectChangeEvent, Box, InputLabel, Select, MenuItem, FormControl } from '@mui/material';
-import React, { useState } from 'react'
 import { style } from '../styles/Styles';
-import { Commit, Issue } from '../types';
+import { Issue } from '../types';
 
 interface Props {
     filterStatus: string,

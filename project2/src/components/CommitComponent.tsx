@@ -1,4 +1,4 @@
-import { Container, Paper, Typography, IconButton } from "@mui/material";
+import { Container, Paper } from "@mui/material";
 import { Commit } from "../types"
 import { style } from "../styles/Styles";
 

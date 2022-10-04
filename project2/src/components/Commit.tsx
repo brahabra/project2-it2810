@@ -1,7 +1,5 @@
-import React, { useState } from "react";
 import { Container, Paper, Typography } from "@mui/material";
 import "../styles/Commit.css";
-import { style } from "../styles/Styles";
 
 
 type Commit = { 
