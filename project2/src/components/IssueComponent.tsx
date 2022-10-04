@@ -1,4 +1,4 @@
-import { Container, Paper, Typography } from "@mui/material";
+import { Container, Paper } from "@mui/material";
 import { style } from "../styles/Styles";
 import { Issue } from "../types";
 

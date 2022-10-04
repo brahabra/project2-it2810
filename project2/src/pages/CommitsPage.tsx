@@ -1,17 +1,16 @@
 import {  useContext, useEffect, useState } from "react";
 import "../styles/CommitsPage.css";
 import "../styles/Styles";
-import { SelectBranchComponent } from "../components/SelectBranchComponent";
 import { CommitList } from "../components/CommitList";
-import { Branch, Commit } from "../types";
+import { Commit } from "../types";
 import { getCommits } from "../api/fetch";
 import { ProjectContext } from "../ProjectContext";
-import { SessionStorageClass } from "../WebStorageClass";
 
 export default function CommitsPage() {
   const ctx = useContext(ProjectContext);
   const [isLoading, setLoading] = useState(false);
   const [commits, setCommits] = useState<Commit[]>([]);
+
 
   useEffect(() => {
     getCommits(ctx.projectID, ctx.token).then(

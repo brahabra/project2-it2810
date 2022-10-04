@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Container, Paper, Typography, Box } from "@mui/material";
+import { Container, Typography, Box } from "@mui/material";
 import { Commit } from "../types"
 import { PieChart } from 'react-minimal-pie-chart';
 import { style } from "../styles/Styles";

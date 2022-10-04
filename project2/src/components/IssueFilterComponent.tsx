@@ -5,6 +5,7 @@ import { Issue } from "../types";
 import DateRangePicker from "./DateRangePicker";
 import IssueNameComponent from "./IssueNameComponent";
 import SelectStatusIssueComponent from "./SelectStatusIssueComponent";
+import { SessionStorageClass } from '../WebStorageClass';
 
 interface Props {
     issues: Issue[]
@@ -17,6 +18,29 @@ export const IssueFilterComponent = (props: Props) => {
     const [filterStatus, setStatus] = useState('');
     const [startValue, setStartValue] = useState<Dayjs | null>(null);
     const [endValue, setEndValue] = useState<Dayjs | null>(null);
+
+    useEffect(() => {
+
+      function hasIssues(name:string | null) {
+        if (name === null) {
+          return false;
+        }
+        for (let i of props.issues) {
+          if (i.author.name === name) {
+            return true;
+          } 
+        }
+        return false;
+      }
+
+      const storage = new SessionStorageClass();
+      const name = storage.getPropValue("selectedName");
+      if (hasIssues(name)) {
+        setName(name!);
+      } else {
+        setName("");
+      }
+    }, []);
     
       useEffect(() => {
 
@@ -71,7 +95,6 @@ export const IssueFilterComponent = (props: Props) => {
         filterName={filterName}
         issues={props.issues}
         filterList={props.filterList}
-        setFilterList={props.setFilterList}
         setName={setName}
         />
         <SelectStatusIssueComponent 

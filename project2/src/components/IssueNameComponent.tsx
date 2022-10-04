@@ -1,17 +1,17 @@
 import { SelectChangeEvent, Box, InputLabel, Select, MenuItem, FormControl } from '@mui/material';
-import React, { useState } from 'react'
 import { style } from '../styles/Styles';
-import { Commit, Issue } from '../types';
+import { Issue } from '../types';
+import { SessionStorageClass } from '../WebStorageClass';
 
 interface Props {
     filterName: string,
     issues: Issue[],
     filterList: Issue[],
-    setFilterList: (value: Issue[]) => void,
     setName: (value:string) => void
 }
 
 export default function IssueNameComponent(props: Props) {
+  const storage = new SessionStorageClass();
 
     function getIssueAuthors() {
         const authorNames = props.issues.map((issue) => issue.author.name);
@@ -26,9 +26,11 @@ export default function IssueNameComponent(props: Props) {
         <InputLabel>Author</InputLabel>
         <Select 
         value={props.filterName}
-         label="Name" onChange={(event: SelectChangeEvent, child) =>
-            props.setName(event.target.value)
-          }>
+         label="Name" onChange={(event: SelectChangeEvent, child) => {
+            const name:string = event.target.value;
+            props.setName(name)
+            storage.setPropValue("selectedName", name);
+          }}>
             <MenuItem key={-1} value={"default"}>Default</MenuItem>
             {getIssueAuthors().map((name, index) => (
             <MenuItem key={index} value={name}>

@@ -3,6 +3,7 @@ import { Dayjs } from "dayjs";
 import { useState, useEffect } from "react";
 import { style } from "../styles/Styles";
 import { Commit } from "../types";
+import { SessionStorageClass } from "../WebStorageClass";
 import DateRangePicker from "./DateRangePicker";
 import NameRowComponent from "./NameRowComponent";
 
@@ -16,6 +17,29 @@ export const FilterComponent = (props: Props) => {
   const [filterName, setName] = useState("");
   const [startValue, setStartValue] = useState<Dayjs | null>(null);
   const [endValue, setEndValue] = useState<Dayjs | null>(null);
+
+  useEffect(() => {
+
+    function hasCommits(name:string | null) {
+      if (name === null) {
+        return false;
+      }
+      for (let c of props.commits) {
+        if (c.committer_name == name) {
+            return true
+        } 
+      }
+      return false
+    }
+
+    const storage = new SessionStorageClass();
+    const name = storage.getPropValue("selectedName");
+    if (hasCommits(name)) {
+      setName(name!);
+    } else {
+      setName("");
+    }
+  }, []);
 
   useEffect(() => {
     function filterCommitList() {

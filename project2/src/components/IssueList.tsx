@@ -1,31 +1,22 @@
 import { Box } from "@mui/material";
-import { useEffect, useState, useContext } from "react";
-import { getIssues } from "../api/fetch";
-import { ProjectContext } from "../ProjectContext";
+import { useState } from "react";
 import { style } from "../styles/Styles";
 import { Issue } from "../types";
 import { IssueComponent } from "./IssueComponent";
 import { IssueFilterComponent } from "./IssueFilterComponent";
 import "../styles/IssuePage.css";
 
+interface Props {
+  issues: Issue[]
+}
 
 
-export const IssueList = () => {
-    const [issues, setIssues] = useState<Issue[]>([]);
+export const IssueList = (props:Props) => {
     const [filterList, setFilterList] = useState<Issue[]>([]);
-    const ctx = useContext(ProjectContext);
-
-    useEffect(() => {
-        getIssues(ctx.projectID, ctx.token).then(
-          (res: Issue[]) => {
-            setIssues(res);
-          }
-        );
-      }, []);
 
     return (
         <Box sx={style.issueListBox}>
-          <IssueFilterComponent issues={issues} filterList={filterList} setFilterList={setFilterList} /> 
+          <IssueFilterComponent issues={props.issues} filterList={filterList} setFilterList={setFilterList} /> 
           <Box sx={style.issuesContainer}>
           {filterList.map((issue: Issue) => (
                 <IssueComponent key={issue.id} issue={issue} />

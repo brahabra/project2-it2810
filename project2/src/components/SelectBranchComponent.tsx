@@ -1,5 +1,5 @@
 import {FormControl, Select, MenuItem, InputLabel, SelectChangeEvent, Box} from '@mui/material'
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { ProjectContext } from '../ProjectContext';
 import { SessionStorageClass } from '../WebStorageClass';
 import { Branch } from '../types';
@@ -23,8 +23,7 @@ export const SelectBranchComponent = (props: Props) => {
       const newBranch = event.target.value;
       if (newBranch != null) {
           props.setBranchName(event.target.value as string);
-          storage.setPropValue('branchName', props.selectedBranch)
-          console.log(props.selectedBranch)
+          storage.setPropValue('branchName', props.selectedBranch);
       }
     }
   
