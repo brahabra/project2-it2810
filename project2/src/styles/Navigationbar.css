@@ -6,9 +6,16 @@
     width: 150px;
 }
 
+@media only screen and (max-width: 600px) {
+    .navbar-logo {
+        visibility: hidden;
+    }
+  }
+
 .abs-center-nav-link {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     bottom: 20%;
 }
+
