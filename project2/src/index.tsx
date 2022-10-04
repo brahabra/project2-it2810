@@ -1,16 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import { ProjectContextProvider } from './ProjectContext';
-import reportWebVitals from './reportWebVitals';
-<link href="https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700" rel="stylesheet"></link>
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { ProjectContextProvider } from "./ProjectContext";
+import reportWebVitals from "./reportWebVitals";
+<link
+  href="https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700"
+  rel="stylesheet"
+></link>;
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <ProjectContextProvider/>
+    <ProjectContextProvider />
   </React.StrictMode>
 );
 

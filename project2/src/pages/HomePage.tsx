@@ -1,15 +1,17 @@
-import { useState } from 'react';
+import { useState } from "react";
 import "../styles/HomePage.css";
 import { Input, Button } from "@mui/material";
 import { LocalStorageClass } from "../WebStorageClass";
-import logo from "../gitlab-logo-650.jpg"
+import logo from "../img/gitlab-logo-650.jpg";
 import { getCommits } from "../api/fetch";
 
 //Home Page
 export default function HomePage() {
   const storage = new LocalStorageClass();
   const [projectID, setProjectID] = useState<string>(selectProjectID());
-  const [projectToken, setProjectToken] = useState<string>(selectProjectToken());
+  const [projectToken, setProjectToken] = useState<string>(
+    selectProjectToken()
+  );
   const [feedbackMessage, setFeedbackMessage] = useState("");
 
   const onChangeProjectID = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,21 +21,20 @@ export default function HomePage() {
     setProjectToken(event.target.value);
   };
 
-
-
   const onSubmit = () => {
-    getCommits(projectID, projectToken).then((res) =>{
-      if(res){
+    getCommits(projectID, projectToken).then((res) => {
+      if (res) {
         if (projectID !== null && projectToken !== "") {
-          setFeedbackMessage("Repository sucessfully added!")
+          setFeedbackMessage("Repository sucessfully added!");
           storage.setPropValue("projectID", projectID);
           storage.setPropValue("projectToken", projectToken);
         }
+      } else {
+        setFeedbackMessage(
+          "Invalid ID and token. Could not load repository ..."
+        );
       }
-      else{
-        setFeedbackMessage("Invalid ID and token. Could not load repository ...");
-      }
-    })
+    });
   };
 
   function selectProjectID() {
@@ -48,7 +49,7 @@ export default function HomePage() {
 
   return (
     <div className="homeContainer">
-      <img className='homepage-logo' src={logo} alt="GitLab Logo" />
+      <img className="homepage-logo" src={logo} alt="GitLab Logo" />
       <Input
         type="text"
         placeholder="ProjectID"

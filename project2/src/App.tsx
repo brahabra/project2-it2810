@@ -1,4 +1,4 @@
-import Home from "./pages/HomePage";
+import HomePage from "./pages/HomePage";
 import CommitsPage from "./pages/CommitsPage";
 import Navigationbar from "./components/Navigationbar";
 import IssuePage from "./pages/IssuePage";
@@ -18,7 +18,7 @@ function App() {
   function renderContent() {
     switch (page) {
       case Page.Home: {
-        return <Home />;
+        return <HomePage />;
       }
       case Page.Commits: {
         return <CommitsPage />;
@@ -30,9 +30,14 @@ function App() {
   }
   //check function for valid project id and token.
   function allowPage(page: Page) {
-    if (storage.getPropValue("projectToken") == null || storage.getPropValue("projectID") == null) {
-      if(page != Page.Home){
-        alert("Please enter valid projectID and token to access commits and issues!");
+    if (
+      storage.getPropValue("projectToken") === null ||
+      storage.getPropValue("projectID") === null
+    ) {
+      if (page !== Page.Home) {
+        alert(
+          "Please enter valid projectID and token to access commits and issues!"
+        );
       }
       return false;
     }
@@ -47,7 +52,7 @@ function App() {
       ctx.token = storage.getPropValue("projectToken")!;
     }
   }
-  
+
   return (
     <div className="App">
       <Navigationbar page={page} checkAndSetPage={checkAndSetPage} />

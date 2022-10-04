@@ -7,21 +7,25 @@ import { IssueFilterComponent } from "./IssueFilterComponent";
 import "../styles/IssuePage.css";
 
 interface Props {
-  issues: Issue[]
+  issues: Issue[];
 }
 
 //Component displaying all single issue components in a list display
-export const IssueList = (props:Props) => {
-    const [filterList, setFilterList] = useState<Issue[]>([]);
+export const IssueList = (props: Props) => {
+  const [filterList, setFilterList] = useState<Issue[]>([]);
 
-    return (
-        <Box sx={style.issueListBox}>
-          <IssueFilterComponent issues={props.issues} filterList={filterList} setFilterList={setFilterList} /> 
-          <Box sx={style.issuesContainer}>
-          {filterList.map((issue: Issue) => (
-                <IssueComponent key={issue.id} issue={issue} />
-          ))}
-          </Box>
-        </Box>
-      );
-}
+  return (
+    <Box sx={style.issueListBox}>
+      <IssueFilterComponent
+        issues={props.issues}
+        filterList={filterList}
+        setFilterList={setFilterList}
+      />
+      <Box sx={style.issuesContainer}>
+        {filterList.map((issue: Issue) => (
+          <IssueComponent key={issue.id} issue={issue} />
+        ))}
+      </Box>
+    </Box>
+  );
+};

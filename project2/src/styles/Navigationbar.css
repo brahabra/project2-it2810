@@ -14,7 +14,7 @@ material ui components cannot directly be styled in css.) */
     .navbar-logo {
         visibility: hidden;
     }
-  }
+}
 
 .abs-center-nav-link {
     position: absolute;
@@ -22,4 +22,3 @@ material ui components cannot directly be styled in css.) */
     transform: translateX(-50%);
     bottom: 20%;
 }
-

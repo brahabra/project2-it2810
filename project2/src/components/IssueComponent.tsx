@@ -11,23 +11,28 @@ export const IssueComponent = (props: { key: number; issue: Issue }) => {
           <p>
             <strong>TITLE: </strong>
             <a href={props.issue.web_url}>{props.issue.title}</a>
-            <br/>
-            <strong>AUTHOR: </strong> {props.issue.author.name}
-            <br/>
-            <strong>ASSIGNEE: </strong>{" "}
+          </p>
+          <p>
+            <strong>AUTHOR: </strong>
+            {props.issue.author.name}
+          </p>
+          <p>
+            <strong>ASSIGNEE: </strong>
             {props.issue.assignee !== null ? props.issue.assignee.name : "None"}
-            <br/>
-            <br/>
-            <strong>DESCRIPTION: </strong>{" "}
+          </p>
+          <p>
+            <strong>DESCRIPTION: </strong>
             {props.issue.description !== null ? props.issue.description : ""}
           </p>
           {props.issue.labels.map((label) => {
             <p>{label}</p>;
           })}
           <p>
-            <strong>STATUS: </strong> {props.issue.state}
-            <br/>
-            <strong>DATE CREATED: </strong>{" "}
+            <strong>STATUS: </strong>
+            {props.issue.state}
+          </p>
+          <p>
+            <strong>DATE CREATED: </strong>
             {props.issue.created_at.substring(0, 10)}
           </p>
         </>

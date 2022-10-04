@@ -18,20 +18,20 @@ interface Props {
 export default function DateRangePicker(props: Props) {
   return (
     <Box sx={style.issueSelectDates}>
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker
-        label="Start date"
-        value={props.startValue}
-        onChange={props.setStartValue}
-        renderInput={(params) => <TextField {...params} />}
-      />
-      <DatePicker
-        label="End date"
-        value={props.endValue}
-        onChange={props.setEndValue}
-        renderInput={(params) => <TextField {...params} />}
-      />
-    </LocalizationProvider>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DatePicker
+          label="Start date"
+          value={props.startValue}
+          onChange={props.setStartValue}
+          renderInput={(params) => <TextField {...params} />}
+        />
+        <DatePicker
+          label="End date"
+          value={props.endValue}
+          onChange={props.setEndValue}
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
     </Box>
   );
 }

@@ -14,26 +14,26 @@ interface Props {
   filterList: Commit[];
 }
 
-//Component for selecting name on commits page. This filters out all commits not made by selected 
+//Component for selecting name on commits page. This filters out all commits not made by selected
 //person.
 export const FilterComponent = (props: Props) => {
   const [filterName, setName] = useState("");
   const [startValue, setStartValue] = useState<Dayjs | null>(null);
   const [endValue, setEndValue] = useState<Dayjs | null>(null);
 
-  //Loading previos selected member (if the member has commits) from session storage, 
+  //Loading previos selected member (if the member has commits) from session storage,
   //when this page loads.
   useEffect(() => {
-    function hasCommits(name:string | null) {
+    function hasCommits(name: string | null) {
       if (name === null) {
         return false;
       }
       for (let c of props.commits) {
-        if (c.committer_name == name) {
-            return true
-        } 
+        if (c.committer_name === name) {
+          return true;
+        }
       }
-      return false
+      return false;
     }
     const storage = new SessionStorageClass();
     const name = storage.getPropValue("selectedName");
@@ -42,7 +42,7 @@ export const FilterComponent = (props: Props) => {
     } else {
       setName("");
     }
-  }, []);
+  }, [props.commits]);
 
   //The function that filters commits. Runs on updates to commits list, filterName variable
   //(the name that is selected), start date and end date for calender.
@@ -88,11 +88,11 @@ export const FilterComponent = (props: Props) => {
         />
       </Box>
       <Box sx={style.commitSelectName}>
-      <NameRowComponent
-        filterName={filterName}
-        commits={props.commits}
-        setName={setName}
-      />
+        <NameRowComponent
+          filterName={filterName}
+          commits={props.commits}
+          setName={setName}
+        />
       </Box>
     </Container>
   );

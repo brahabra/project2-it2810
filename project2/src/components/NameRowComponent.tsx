@@ -26,8 +26,6 @@ export default function NameRowComponent(props: Props) {
     );
   }
 
-  
-
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
@@ -36,7 +34,7 @@ export default function NameRowComponent(props: Props) {
           value={props.filterName}
           label="Name"
           onChange={(event: SelectChangeEvent, child) => {
-            const name:string = event.target.value;
+            const name: string = event.target.value;
             props.setName(name);
             storage.setPropValue("selectedName", name);
           }}

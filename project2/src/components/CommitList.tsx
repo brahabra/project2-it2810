@@ -1,7 +1,5 @@
-import { Box, Container } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
-import { getCommits } from "../api/fetch";
-import { ProjectContext } from "../ProjectContext";
+import { Box } from "@mui/material";
+import { useState } from "react";
 import { Commit } from "../types";
 import { CommitComponent } from "./CommitComponent";
 import { FilterComponent } from "./CommitFilterComponent";
@@ -11,29 +9,35 @@ import "../styles/CommitsPage.css";
 
 //Properties for commit list view component.
 interface Props {
-    commits: Commit[]
-    isLoading: boolean
+  commits: Commit[];
+  isLoading: boolean;
 }
 
 //Component that displays commit components in a list display.
-export const CommitList = (props:Props) => {
-    const [filterList, setFilterList] = useState<Commit[]>([]);
+export const CommitList = (props: Props) => {
+  const [filterList, setFilterList] = useState<Commit[]>([]);
 
-    return (
-        <div className="commitContainer">
-          {props.isLoading ? <Graph commits={props.commits} /> : null} 
-          <Box sx={style.commitListBox}>
-          {props.isLoading ? <FilterComponent commits={props.commits} filterList={filterList} setFilterList={setFilterList}/> : null }
-          {props.isLoading ? 
-            <Box sx={style.commitListContainer}>
-                {filterList.map((commit) => (
-                    <CommitComponent key={commit.id} commit={commit} />
-                ))}
-            </Box> : <p>Loading Data ...</p> }
+  return (
+    <div className="commitContainer">
+      {props.isLoading ? <Graph commits={props.commits} /> : null}
+      <Box sx={style.commitListBox}>
+        {props.isLoading ? (
+          <FilterComponent
+            commits={props.commits}
+            filterList={filterList}
+            setFilterList={setFilterList}
+          />
+        ) : null}
+        {props.isLoading ? (
+          <Box sx={style.commitListContainer}>
+            {filterList.map((commit) => (
+              <CommitComponent key={commit.id} commit={commit} />
+            ))}
           </Box>
-        </div>
-
-    );
-
-    
-}
+        ) : (
+          <p>Loading Data ...</p>
+        )}
+      </Box>
+    </div>
+  );
+};
