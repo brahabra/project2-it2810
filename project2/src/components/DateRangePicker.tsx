@@ -6,6 +6,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Box } from "@mui/material";
 import { style } from "../styles/Styles";
 
+//Properties for date range picker component
 interface Props {
   startValue: Dayjs | null;
   setStartValue: (value: Dayjs | null) => void;
@@ -13,6 +14,7 @@ interface Props {
   setEndValue: (value: Dayjs | null) => void;
 }
 
+//Component for picking date range.
 export default function DateRangePicker(props: Props) {
   return (
     <Box sx={style.issueSelectDates}>

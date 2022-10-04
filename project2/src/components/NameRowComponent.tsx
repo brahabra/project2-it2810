@@ -9,6 +9,7 @@ import {
 import { Commit } from "../types";
 import { SessionStorageClass } from "../WebStorageClass";
 
+
 interface Props {
   commits: Commit[];
   filterName: string;
