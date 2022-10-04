@@ -4,6 +4,7 @@
 
 .navbar-logo {
     width: 150px;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {
