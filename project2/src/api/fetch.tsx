@@ -1,8 +1,7 @@
-
 //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch code sourced from MDN
 
-//refName attribute no longer works in Gitlab API since update on 30.09.2022 so fetching commits for branch other than main is deprecated
-/*+ '?refName=' + branch*/
+//refName attribute for fetching branch no longer in use
+/*+ '?ref_name=' + branch*/
 export async function getCommits(projectID = '', token = ''  /*, branch = ''*/) {
   const response = await fetch('https://gitlab.stud.idi.ntnu.no/api/v4/projects/' + projectID + '/repository/commits?per_page=100', {
 
