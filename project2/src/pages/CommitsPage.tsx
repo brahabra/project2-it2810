@@ -1,4 +1,4 @@
-import {  useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../styles/CommitsPage.css";
 import "../styles/Styles";
 import { CommitList } from "../components/CommitList";
@@ -19,7 +19,7 @@ export default function CommitsPage() {
         setLoading(true);
       }
     );
-  }, [ ctx.projectID, ctx.token]);
+  }, [ctx.projectID, ctx.token]);
 
   return (
     <div>
@@ -27,7 +27,7 @@ export default function CommitsPage() {
         <h2>Commits</h2>
         <p>Showing the 100 last commits to main branch in project {ctx.projectID}</p>
       </div>
-      {isLoading ? <CommitList commits={commits} isLoading={isLoading} /> : <p>Loading ...</p>} 
+      {isLoading ? <CommitList commits={commits} isLoading={isLoading} /> : <p>Loading ...</p>}
     </div>
   );
 }

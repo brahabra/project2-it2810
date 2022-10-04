@@ -28,8 +28,8 @@ function App() {
     }
   }
   function allowPage(page: Page) {
-    if (storage.getPropValue("projectToken") == null || storage.getPropValue("projectID") == null) {
-      if(page != Page.Home){
+    if (storage.getPropValue("projectToken") === null || storage.getPropValue("projectID") === null) {
+      if (page !== Page.Home) {
         alert("Please enter valid projectID and token to access commits and issues!");
       }
       return false;
@@ -44,7 +44,7 @@ function App() {
       ctx.token = storage.getPropValue("projectToken")!;
     }
   }
-  
+
   return (
     <div className="App">
       <Navigationbar page={page} checkAndSetPage={checkAndSetPage} />

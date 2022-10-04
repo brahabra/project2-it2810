@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../styles/Home.css";
 import { Input, Button } from "@mui/material";
 import { LocalStorageClass } from "../WebStorageClass";
-import logo from "../gitlab-logo-650.jpg"
+import logo from "../img/gitlab-logo-650.jpg"
 import { getCommits } from "../api/fetch";
 
 export default function Home() {
@@ -18,18 +18,16 @@ export default function Home() {
     setProjectToken(event.target.value);
   };
 
-
-
   const onSubmit = () => {
-    getCommits(projectID, projectToken).then((res) =>{
-      if(res){
+    getCommits(projectID, projectToken).then((res) => {
+      if (res) {
         if (projectID !== null && projectToken !== "") {
           setFeedbackMessage("Repository sucessfully added!")
           storage.setPropValue("projectID", projectID);
           storage.setPropValue("projectToken", projectToken);
         }
       }
-      else{
+      else {
         setFeedbackMessage("Invalid ID and token. Could not load repository ...");
       }
     })

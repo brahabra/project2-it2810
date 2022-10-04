@@ -20,14 +20,14 @@ export const FilterComponent = (props: Props) => {
 
   useEffect(() => {
 
-    function hasCommits(name:string | null) {
+    function hasCommits(name: string | null) {
       if (name === null) {
         return false;
       }
       for (let c of props.commits) {
-        if (c.committer_name == name) {
-            return true
-        } 
+        if (c.committer_name === name) {
+          return true
+        }
       }
       return false
     }
@@ -39,7 +39,7 @@ export const FilterComponent = (props: Props) => {
     } else {
       setName("");
     }
-  }, []);
+  }, [props.commits]);
 
   useEffect(() => {
     function filterCommitList() {
@@ -83,11 +83,11 @@ export const FilterComponent = (props: Props) => {
         />
       </Box>
       <Box sx={style.commitSelectName}>
-      <NameRowComponent
-        filterName={filterName}
-        commits={props.commits}
-        setName={setName}
-      />
+        <NameRowComponent
+          filterName={filterName}
+          commits={props.commits}
+          setName={setName}
+        />
       </Box>
     </Container>
   );

@@ -1,30 +1,29 @@
 import { Container, Paper, Typography } from "@mui/material";
 import "../styles/Commit.css";
 
-
-type Commit = { 
+type Commit = {
   id: string,
   short_id: string,
   created_at: string,
-  author_email: string, 
+  author_email: string,
   author_name: string,
-  authored_date: string, 
+  authored_date: string,
   committed_date: string,
-  committer_email: string, 
+  committer_email: string,
   committer_name: string,
   message: string,
   title: string,
   web_url: string,
 }
 
-export const Commit = (props: {key:string, commit:Commit}) => {
+export const Commit = (props: { key: string, commit: Commit }) => {
   return (
     <Container>
-      <Paper> 
+      <Paper>
         <Typography>
-        Title:
-         <a href={props.commit.web_url}>
-         {props.commit.title}</a>
+          Title:
+          <a href={props.commit.web_url}>
+            {props.commit.title}</a>
         </Typography>
         <Typography> Author: {props.commit.committer_name}</Typography>
         <Typography> Committer Email: {props.commit.committer_email}</Typography>

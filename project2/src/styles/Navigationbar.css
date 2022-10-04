@@ -11,7 +11,7 @@
     .navbar-logo {
         visibility: hidden;
     }
-  }
+}
 
 .abs-center-nav-link {
     position: absolute;
@@ -19,4 +19,3 @@
     transform: translateX(-50%);
     bottom: 20%;
 }
-
