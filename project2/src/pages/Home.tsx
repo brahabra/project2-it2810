@@ -46,13 +46,13 @@ export default function Home() {
   }
 
   return (
-    <div className="container">
+    <div className="homeContainer">
       <img className='homepage-logo' src={logo} alt="GitLab Logo" />
       <Input
-        type="number"
+        type="text"
         placeholder="ProjectID"
         onChange={onChangeProjectID}
-        value={parseInt(projectID)}
+        value={projectID}
       />
       <Input
         type="text"

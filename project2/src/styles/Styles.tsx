@@ -92,7 +92,7 @@ export const style = {
   // The whole issueList, with each issue and filtering options
   issueListBox: {
     width: "100%",
-    height: "75vh",
+    height: "65vh",
     margin: "auto",
     backgroundColor: "#f9f9f9",
     borderRadius: "25px",
@@ -112,20 +112,21 @@ export const style = {
   issueSelectName: {
     paddingTop: "15px",
     width: "50%",
-    margin: "auto",
+    margin: "auto"
   },
   // select status
   issueSelectStatus: {
     paddingTop: "15px",
     width: "50%",
-    margin: "auto",
+    margin: "auto"
+
   },
 
   // select date
   issueSelectDates: {
     paddingTop: "20px",
     width: "50%",
-    margin: "auto",
+    margin: "auto"
   },
 
   // one issue component 
@@ -135,4 +136,11 @@ export const style = {
     width: "auto",
     margin: "20px",
   },
+  // Navbar buttons
+  navbarButton: {
+    color: "white",
+    margin: "5px",
+    borderRadius: "5px",
+    boxShadow: "5"
+  }
 };

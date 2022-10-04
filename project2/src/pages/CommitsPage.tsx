@@ -25,7 +25,7 @@ export default function CommitsPage() {
     <div>
       <div className="header">
         <h2>Commits</h2>
-        <p>Showing the 100 last commits in your repository to main branch</p>
+        <p>Showing the 100 last commits to main branch in project {ctx.projectID}</p>
       </div>
       {isLoading ? <CommitList commits={commits} isLoading={isLoading} /> : <p>Loading ...</p>} 
     </div>
