@@ -12,7 +12,7 @@ export default function CommitsPage() {
   const [isLoading, setLoading] = useState(false);
   const [commits, setCommits] = useState<Commit[]>([]);
 
-
+  //fetches commits from fetch api.
   useEffect(() => {
     getCommits(ctx.projectID, ctx.token).then(
       (res: Commit[]) => {

@@ -5,6 +5,7 @@ import { LocalStorageClass } from "../WebStorageClass";
 import logo from "../gitlab-logo-650.jpg"
 import { getCommits } from "../api/fetch";
 
+//Home page
 export default function Home() {
   const storage = new LocalStorageClass();
   const [projectID, setProjectID] = useState<string>(selectProjectID());

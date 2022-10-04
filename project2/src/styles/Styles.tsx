@@ -1,3 +1,5 @@
+//Styling for material ui components. 
+
 export const style = {
   /*
   style template:

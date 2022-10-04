@@ -1,5 +1,5 @@
 import { Container, Typography, Box } from "@mui/material";
-import { Commit } from "../types"
+import { Commit, Member } from "../types"
 import { PieChart } from 'react-minimal-pie-chart';
 import { style } from "../styles/Styles";
 
@@ -21,13 +21,6 @@ function getColor(memberNr: number) {
   
   return color; //Returns color code in hex.
 }
-
-//Member type used for graph input. 
-type Member = {
-  name: string;
-  commits: number;
-  color: string;
-};
 
 //Function for calculating how many commits each members has.
 function calcMemberDistribution(commits: Commit[]) {

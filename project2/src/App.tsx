@@ -14,6 +14,7 @@ function App() {
   const storage = new LocalStorageClass();
   const [page, setPage] = useState<Page>(Page.Home);
 
+  //Page render function
   function renderContent() {
     switch (page) {
       case Page.Home: {
@@ -27,6 +28,7 @@ function App() {
       }
     }
   }
+  //check function for valid project id and token.
   function allowPage(page: Page) {
     if (storage.getPropValue("projectToken") == null || storage.getPropValue("projectID") == null) {
       if(page != Page.Home){
@@ -37,6 +39,7 @@ function App() {
     return true;
   }
 
+  //page selecter function
   function checkAndSetPage(page: Page) {
     if (allowPage(page)) {
       setPage(page);
