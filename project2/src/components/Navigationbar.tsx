@@ -22,8 +22,7 @@ export default function Navigationbar(props:Props){
   return (
     
       <nav className="navbar navbar-dark navbar-expand bg-background-color">
-        <img className='navbar-logo' src={logo} alt="GitLab Logo" />
-        
+        <img className='navbar-logo' src={logo} alt="GitLab Logo" onClick={() => props.checkAndSetPage(Page.Home)}/>
         <div className="align-items-center" >
             <ul className="navbar-nav abs-center-nav-link">
                 <li className="nav-item">

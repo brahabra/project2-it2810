@@ -52,8 +52,6 @@ export const style = {
   commitListContainer: {
     height: "60%",
     marginTop: "20px",
-    overflow: "hidden",
-    overflowY: "scroll",
   },
 
   // The whole commitList, with each commit and filtering options
@@ -65,6 +63,7 @@ export const style = {
     borderRadius: "25px",
     boxShadow: "8",
     overflow: "hidden",
+    overflowY: "scroll",
   },
 
   // select branch
@@ -100,14 +99,13 @@ export const style = {
     borderRadius: "25px",
     boxShadow: "8",
     overflow: "hidden",
+    overflowY: "scroll",
   },
 
   // Only the scrollbar issues, not the filters above
   issuesContainer: {
     height: "55%",
     marginTop: "20px",
-    overflow: "hidden",
-    overflowY: "scroll",
   },
 
   // select name
