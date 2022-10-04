@@ -4,9 +4,9 @@ import { PieChart } from 'react-minimal-pie-chart';
 import { style } from "../styles/Styles";
 
 function getColor(memberNr: number) {
-  const startRange:number[] = [0, 150, 0];
+  const startRange:number[] = [0, 80, 0];
   const endRange:number = 255;
-  const intervall:number[] = [0, 20, 2];
+  const intervall:number[] = [0, 70, 2];
   let rgb:string[] = [((startRange[0] + intervall[0]*memberNr)%endRange).toString(16), 
                       ((startRange[1] + intervall[1]*memberNr)%endRange).toString(16), 
                       ((startRange[2] + intervall[2]*memberNr)%endRange).toString(16)];
