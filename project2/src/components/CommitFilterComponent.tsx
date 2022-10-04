@@ -7,19 +7,23 @@ import { SessionStorageClass } from "../WebStorageClass";
 import DateRangePicker from "./DateRangePicker";
 import NameRowComponent from "./NameRowComponent";
 
+//Properties interface for filter component.
 interface Props {
   commits: Commit[];
   setFilterList: (value: Commit[]) => void;
   filterList: Commit[];
 }
 
+//Component for selecting name on commits page. This filters out all commits not made by selected 
+//person.
 export const FilterComponent = (props: Props) => {
   const [filterName, setName] = useState("");
   const [startValue, setStartValue] = useState<Dayjs | null>(null);
   const [endValue, setEndValue] = useState<Dayjs | null>(null);
 
+  //Loading previos selected member (if the member has commits) from session storage, 
+  //when this page loads.
   useEffect(() => {
-
     function hasCommits(name:string | null) {
       if (name === null) {
         return false;
@@ -31,7 +35,6 @@ export const FilterComponent = (props: Props) => {
       }
       return false
     }
-
     const storage = new SessionStorageClass();
     const name = storage.getPropValue("selectedName");
     if (hasCommits(name)) {
@@ -41,6 +44,8 @@ export const FilterComponent = (props: Props) => {
     }
   }, []);
 
+  //The function that filters commits. Runs on updates to commits list, filterName variable
+  //(the name that is selected), start date and end date for calender.
   useEffect(() => {
     function filterCommitList() {
       const commitsCopy = [...props.commits];

@@ -1,8 +1,9 @@
 import { Container, Typography, Box } from "@mui/material";
-import { Commit } from "../types"
+import { Commit, Member } from "../types"
 import { PieChart } from 'react-minimal-pie-chart';
 import { style } from "../styles/Styles";
 
+//Function for getting colors for graph. memberNr variable functions as a intervall multiplier.
 function getColor(memberNr: number) {
   const startRange:number[] = [0, 150, 0];
   const endRange:number = 255;
@@ -18,15 +19,10 @@ function getColor(memberNr: number) {
       color = color + rgb[i];
     }
   
-  return color;
+  return color; //Returns color code in hex.
 }
 
-type Member = {
-  name: string;
-  commits: number;
-  color: string;
-};
-
+//Function for calculating how many commits each members has.
 function calcMemberDistribution(commits: Commit[]) {
   let members: Map<string, Member> = new Map();
   let member: string;
@@ -43,18 +39,21 @@ function calcMemberDistribution(commits: Commit[]) {
   members.forEach((value) => {
      data.push(value);
   })
-  return data;
+  return data; //Returns distribution in form of Member array.
 }
 
+//Properties for Graph component
 interface Props {
     commits: Commit[],
 }
 
+//Graph component
 export const Graph = (props: Props) => {
-  const membersDistribution = calcMemberDistribution(props.commits);
-  const chartData: {title: string, value:number, color: string}[] = [];
-  let member: Member;
+  const membersDistribution = calcMemberDistribution(props.commits); //List of
+  const chartData: {title: string, value:number, color: string}[] = []; //Data used for PieChart.
+  let member: Member; //Temperary iteration variable
 
+  //Creating chartData array.
   for (let i = 0; i < membersDistribution.length; i++) {
     member = membersDistribution[i];
     chartData.push( { title: member.name, value: member.commits, color: member.color } );
@@ -64,6 +63,7 @@ export const Graph = (props: Props) => {
       <Box sx={style.graphContainer}>
         <>
         <Box sx={style.chart}>
+          {/* PieChart component */}
           <PieChart animate={true}  data={chartData}/>
         </Box>
    
@@ -75,7 +75,6 @@ export const Graph = (props: Props) => {
             <Typography>{member.name}</Typography>
           </Box>
           )))}
- 
         </>
       </Box>
     </Container>

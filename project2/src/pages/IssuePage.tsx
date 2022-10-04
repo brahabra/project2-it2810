@@ -6,7 +6,7 @@ import { getIssues } from '../api/fetch';
 import { ProjectContext } from '../ProjectContext';
 import { Issue } from '../types';
 
-
+//Main page for Issues.
 export default function IssuePage() {
   const [isLoading, setLoading] = useState(false)
   const [issues, setIssues] = useState<Issue[]>([]);

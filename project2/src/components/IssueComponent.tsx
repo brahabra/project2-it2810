@@ -2,6 +2,7 @@ import { Container, Paper } from "@mui/material";
 import { style } from "../styles/Styles";
 import { Issue } from "../types";
 
+//Issue component to display a issue.
 export const IssueComponent = (props: { key: number; issue: Issue }) => {
   return (
     <Container>

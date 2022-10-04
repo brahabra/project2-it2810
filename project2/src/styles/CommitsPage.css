@@ -1,3 +1,6 @@
+/* Css for commits page (lots of the styling happens in styles.tsx, because we used material ui.
+material ui components cannot directly be styled in css.) */
+
 .header {
     text-align: center;
 }

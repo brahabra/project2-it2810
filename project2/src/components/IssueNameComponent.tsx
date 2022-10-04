@@ -3,6 +3,7 @@ import { style } from '../styles/Styles';
 import { Issue } from '../types';
 import { SessionStorageClass } from '../WebStorageClass';
 
+//Props interface for props object.
 interface Props {
     filterName: string,
     issues: Issue[],
@@ -10,6 +11,7 @@ interface Props {
     setName: (value:string) => void
 }
 
+//component for selecting for member to view issues for.
 export default function IssueNameComponent(props: Props) {
   const storage = new SessionStorageClass();
 

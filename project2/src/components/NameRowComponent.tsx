@@ -9,12 +9,14 @@ import {
 import { Commit } from "../types";
 import { SessionStorageClass } from "../WebStorageClass";
 
+//Properties for name selector component
 interface Props {
   commits: Commit[];
   filterName: string;
   setName: (value: string) => void;
 }
 
+//Component for selecting name for filtering on commits page.
 export default function NameRowComponent(props: Props) {
   const storage = new SessionStorageClass();
   function getCommitAuthors() {

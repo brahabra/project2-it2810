@@ -10,7 +10,7 @@ interface Props {
   issues: Issue[]
 }
 
-
+//Component displaying all single issue components in a list display
 export const IssueList = (props:Props) => {
     const [filterList, setFilterList] = useState<Issue[]>([]);
 

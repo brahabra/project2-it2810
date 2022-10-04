@@ -9,11 +9,13 @@ export enum Page {
   Home, Commits, Issues
 }
 
+//Properties for navbar component
 interface Props {
   page: Page, 
   checkAndSetPage: (value: Page) => void
 }
 
+//Navigationbar component.
 export default function Navigationbar(props:Props){
   const storage = new LocalStorageClass();
   

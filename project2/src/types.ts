@@ -1,3 +1,5 @@
+//main type file. Contains all types used in the project.
+
 export type Commit = { 
     id: string,
     short_id: string,
@@ -64,3 +66,9 @@ export type Branch = {
     merged: boolean
     web_url: string
 }
+
+export type Member = {
+    name: string;
+    commits: number;
+    color: string;
+};

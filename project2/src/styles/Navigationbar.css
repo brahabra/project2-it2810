@@ -1,3 +1,6 @@
+/* Css for navbar (lots of the styling happens in styles.tsx, because we used material ui.
+material ui components cannot directly be styled in css.) */
+
 .bg-background-color {
     background-color: #58D68D;
 }

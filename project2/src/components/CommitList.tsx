@@ -9,11 +9,13 @@ import { Graph } from "./Graph";
 import { style } from "../styles/Styles";
 import "../styles/CommitsPage.css";
 
+//Properties for commit list view component.
 interface Props {
     commits: Commit[]
     isLoading: boolean
 }
 
+//Component that displays commit components in a list display.
 export const CommitList = (props:Props) => {
     const [filterList, setFilterList] = useState<Commit[]>([]);
 

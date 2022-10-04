@@ -13,14 +13,16 @@ interface Props {
     setFilterList: (value:Issue[]) => void
 }
 
+//Component that filters issues.
 export const IssueFilterComponent = (props: Props) => {
     const [filterName, setName] = useState('');
     const [filterStatus, setStatus] = useState('');
     const [startValue, setStartValue] = useState<Dayjs | null>(null);
     const [endValue, setEndValue] = useState<Dayjs | null>(null);
 
+    //Loading previos selected member (if the member has issues) from session storage, 
+    //when this page loads.
     useEffect(() => {
-
       function hasIssues(name:string | null) {
         if (name === null) {
           return false;
@@ -32,7 +34,6 @@ export const IssueFilterComponent = (props: Props) => {
         }
         return false;
       }
-
       const storage = new SessionStorageClass();
       const name = storage.getPropValue("selectedName");
       if (hasIssues(name)) {
@@ -41,7 +42,9 @@ export const IssueFilterComponent = (props: Props) => {
         setName("");
       }
     }, []);
-    
+
+      //The function that filters issues. Runs on updates to issues list, filterName variable
+      //(the name that is selected), start date and end date for calender, and status of issue.
       useEffect(() => {
 
         function filterIssueList() {

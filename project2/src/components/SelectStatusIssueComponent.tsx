@@ -2,6 +2,7 @@ import { SelectChangeEvent, Box, InputLabel, Select, MenuItem, FormControl } fro
 import { style } from '../styles/Styles';
 import { Issue } from '../types';
 
+//Properties for status selector components.
 interface Props {
     filterStatus: string,
     issues: Issue[],
@@ -10,6 +11,7 @@ interface Props {
     setStatus: (value:string) => void
 }
 
+//status selector component for issue filtering.
 export default function SelectStatusIssueComponent(props: Props) {
 
     function getIssueStatus() {
