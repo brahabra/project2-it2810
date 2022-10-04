@@ -1,7 +1,7 @@
 import { Container, Paper, Typography } from "@mui/material";
 import "../styles/Commit.css";
 
-
+//Commit type.
 type Commit = { 
   id: string,
   short_id: string,
@@ -17,6 +17,7 @@ type Commit = {
   web_url: string,
 }
 
+//Commit commit component
 export const Commit = (props: {key:string, commit:Commit}) => {
   return (
     <Container>

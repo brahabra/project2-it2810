@@ -6,6 +6,7 @@ import { Commit } from "../types";
 import { getCommits } from "../api/fetch";
 import { ProjectContext } from "../ProjectContext";
 
+//Main commit page.
 export default function CommitsPage() {
   const ctx = useContext(ProjectContext);
   const [isLoading, setLoading] = useState(false);

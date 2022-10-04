@@ -7,6 +7,7 @@ import { style } from "../styles/Styles";
 
 const storage = new SessionStorageClass();
 
+//Properties for branch selector component.
 interface Props {
     setLoadedBranch: (value: boolean) => void
     setBranchName: (value:string) => void,
@@ -14,11 +15,12 @@ interface Props {
     selectedBranch: string,
 }
 
+//Branch selector component.
 export const SelectBranchComponent = (props: Props) => {
     //const [branches, setBranches] = useState<Branch[]>([]);
     const ctx = useContext(ProjectContext);
 
-
+    //Event change for selector meny.
     const handleChangeBranch = (event: SelectChangeEvent) => {
       const newBranch = event.target.value;
       if (newBranch != null) {
@@ -26,7 +28,7 @@ export const SelectBranchComponent = (props: Props) => {
           storage.setPropValue('branchName', props.selectedBranch);
       }
     }
-  
+    
     return (
       <Box sx={style.commitsSelectBranch}>
       <FormControl style={{width: 250}}>

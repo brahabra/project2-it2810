@@ -2,6 +2,7 @@ import { Container, Paper } from "@mui/material";
 import { Commit } from "../types"
 import { style } from "../styles/Styles";
 
+//component for single commit boxes.
 export const CommitComponent = (props: {key:string, commit:Commit}) => {
   return (
     <Container>

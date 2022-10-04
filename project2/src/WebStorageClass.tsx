@@ -1,5 +1,7 @@
 import { LocalStorage, SessionStorage} from 'typescript-web-storage';
 
+//Abstract class for webstorage. Impements functions for storing, getting and clearing (prop: value)
+//to storage.
 abstract class WebStorageClass {
     private storage: Storage;
 
@@ -25,12 +27,14 @@ abstract class WebStorageClass {
     }
 }
 
+//Variant for localstorage.
 class LocalStorageClass extends WebStorageClass {
     constructor() {
         super(new LocalStorage());
     }
 }
 
+//Variant for sessionstorage.
 class SessionStorageClass extends WebStorageClass {
     constructor() {
         super(new SessionStorage());
