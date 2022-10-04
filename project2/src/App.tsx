@@ -29,7 +29,9 @@ function App() {
   }
   function allowPage(page: Page) {
     if (storage.getPropValue("projectToken") == null || storage.getPropValue("projectID") == null) {
-      alert("Please enter valid projectID and token to access commits and issues!");
+      if(page != Page.Home){
+        alert("Please enter valid projectID and token to access commits and issues!");
+      }
       return false;
     }
     return true;
