@@ -32,3 +32,11 @@ Vi valgte å knytte issues til commits ved å lage branches ut ifra issues. Vi t
 
 ## Hvordan vi har testet
 Vi fant ut litt for sent at MUI-komponenter er vanskelig å integrere med Jest komponenttesting. Vi har fått laget snapshot-tester som fungerer, men ikke enkle komponenttester som sjekker oppførsel, da det er veldig vanskelig å få valgt komponentet med jest når det er en MUI-komponent. I stedet utførte vi utforskende tester på alle komponenter og prøvde å ødelegge så mye vi kunne for å se om noe uforventet dukket opp. Grunnet Typescript sin strenge syntaks og MUI-komponenter sine interne tester fant vi ingen uforventede feil i siden vår gjennom utforskende testing. Til neste gang ville vi sjekket dette tidligere så vi kunne fått lagd komponenttester men fikk det dessverre ikke til i dette prosjektet etter mye frustrasjon. 
+
+
+## Bilder av nettsiden
+
+![alt text](src/img/home.png)
+![alt text](src/img/commits.png)
+![alt text](src/img/issues.png)
+
